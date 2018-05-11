@@ -1,0 +1,122 @@
+body{
+    /* Background pattern from Toptal Subtle Patterns */
+    background: url(".\\img\\dark-triangles.png");
+    margin:0px;
+    padding: 0px;
+}
+#logo{
+    background: rgba(173, 184, 113, 0.438); 
+    text-align: center;
+    height: 600px;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 50px;
+}
+
+#tytul{
+    margin: 100px;;
+}
+
+
+
+#zaloguj{
+    margin: auto;
+    height: 20px;
+    width: 80px;
+    background-color: rgba(17, 104, 175, 0.671);
+    font-size: 15;
+    float: right;
+    padding: 8px;
+    margin-right: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+#zarejestruj{
+    margin: auto;
+    height: 20px;
+    width: 90px;
+    background-color: rgba(17, 104, 175, 0.671);
+    font-size: 15;
+    float: right;
+    padding: 8px;
+    margin-right: 150px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+
+
+
+.anim {
+  text-align: center;
+  background: linear-gradient(to right, #FFF 20%, rgb(80, 68, 243) 40%, rgb(80, 68, 243) 60%, #FFF 80%);
+  background-size: 200% auto;
+  color: #000;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  animation: shine 1s linear infinite;
+  font-size: 80px;
+  padding: 100px;
+    width: 30%;
+    float: left;
+
+}
+@keyframes shine {
+    to {
+      background-position: 200% center;
+    }
+  }
+
+#samolot{
+    text-align: center;
+    margin: 100px;
+    float: left;
+    width: auto;
+    height: 300px;
+}
+
+#tresc{
+      text-align: center;
+      font-size: 20px;
+      font-family: fantasy;
+      color: rgb(17, 209, 104);
+      padding: 50px;
+      font-size: 80px;
+      height: 600px;
+      background-color: rgba(255, 127, 80, 0.5);
+      opacity: 0.8;
+}
+.log{
+    background: url(".\\img\\landscape-XX.jpg") fixed;
+    background-position-y: -200px;
+    height: 450px;
+    width: 100%;
+    opacity: 0.5;
+}
+
+#stopka{
+    background-color: rgba(129, 172, 28, 0.5);
+    height:40;
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+    font-size:15px;
+}
+
+span{
+    font-family: 'Lobster', cursive;
+    font-size:14px;
+    color: rgb(36, 18, 53);
+}
+
+a{
+    color: rgb(66, 11, 45);
+    text-decoration: none;
+}
+
+#zaloguj:hover, #zarejestruj:hover{
+    background-color: greenyellow;
+    color: goldenrod;
+}

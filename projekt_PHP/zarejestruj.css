@@ -1,0 +1,77 @@
+@import url(https://fonts.googleapis.com/css?family=Lobster+Two:regular,italic,700,700italic);
+html,
+body {
+  height: 100%;
+  background: url(".\\img\\landscape-XX.jpg");
+  background-size: cover;
+  overflow: hidden;
+}
+
+#kontener {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#rejestracja {
+  background-color: #e974469f;
+  width: 250px;
+  height: auto;
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
+  border: darkkhaki 2px solid;
+}
+
+legend {
+  text-align: center;
+  color: rgba(45, 3, 61, 0.75);
+  font-size: 25px;
+  font-family: Lobster Two;
+  font-weight: bold;
+}
+
+input {
+  margin-top: 15px;
+  width: 200px;
+  text-align: left;
+}
+
+input:hover {
+  background-color: rgba(85, 211, 27, 0.452);
+}
+
+#zatwierdz {
+  background-color: rgba(0, 128, 0, 0.65);
+  height: 50px;
+  font-family: fantasy;
+  font-size: medium;
+  color: rgb(15, 14, 14);
+  text-align: center;
+}
+
+#zatwierdz:hover {
+  background-color: greenyellow;
+}
+
+fieldset {
+  border: none;
+}
+
+#odsylacz {
+  margin-bottom: 2px;
+  float: right;
+  margin-right: 20px;
+}
+
+p {
+  margin: 0px;
+}
+
+hr{
+
+  margin-top: 10px;
+  margin-bottom: 5px;
+  border-top:2px solid black;
+}
