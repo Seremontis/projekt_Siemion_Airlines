@@ -20,6 +20,7 @@ include ('polaczenie.php');
     <title>Siemion Airlines-panel użytkownika</title>
     <meta name="description" content="panel użytkownika">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Karol Ścigała">
     <link rel="stylesheet" type="text/css" href="uzytk.css" />
     <link rel="stylesheet" type="text/css" href="tabela.css" />
 </head>

@@ -60,7 +60,9 @@ else if($operacja=="rozklad"){
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Siemion Airlines-VIP</title>
+    <meta name="description" content="Rejestracja do Siemion Airlines">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Karol Ścigała">
     <link rel="stylesheet" type="text/css" href="pracownik.css" />
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
     <script>
