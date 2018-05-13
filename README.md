@@ -3,6 +3,8 @@
 <h1> Projekt linii lotniczych</h1>
 <hr />
 <ul>Co jeszcze:
+  <li>rezerwowanie lub rezygnacja z podrózy</li>
+  <li>możliwość edycji danych;
   <li>poprawić rejestracje(nie można tworzyć takich samych kont</li>
   <li>posprawdzać poprawność danych</li>
   <li>poprawić kontrolę danych przy tworzeniu danych przez pracownika</li>
