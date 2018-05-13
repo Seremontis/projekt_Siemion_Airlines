@@ -1,5 +1,19 @@
 <?php
 include ('./polaczenie.php');
+session_start();
+
+if(isset($_SESSION["zalogowany"]) && $_SESSION["Login"]){
+    if($_SESSION["zalogowany"]=="Pracownik"){
+        header('Location: pracownik.php');
+        exit;
+    }
+
+    else if($_SESSION["zalogowany"]=="Klienci"){
+        header('Location: uzytkownik.php');
+        exit;
+    }
+
+}
 ?>
 
 <!DOCTYPE HTML>
@@ -31,7 +45,6 @@ include ('./polaczenie.php');
                         <input type="password" name="haslo" placeholder="Hasło" required/>
                     </p>
                     <p>
-                        <input type="hidden" name="kto" value="Klient" />
                         <input type="checkbox"name="kto" value="Pracownik" style="width:20px;"><label>Jestem pracownikiem</label>
                     </p>
 

@@ -1,13 +1,6 @@
 <?php
 include ('./polaczenie.php');
 
-try{
-
-    $baza=new PDO(DSN,UZYTKOWNIK,HASLO);
-}
-catch(PDOException $e){
-    echo "Bląd połączenia; ".$e->getMessage();
-}
 ?>
 
 <!DOCTYPE html>
@@ -67,7 +60,7 @@ catch(PDOException $e){
             </fieldset>
             <div id="odsylacz">
                 Jeśli masz już konto to
-                <a href="zaloguj.html">zaloguj się</a>
+                <a href="zaloguj.php">zaloguj się</a>
             </div>
         </div>
     </div>

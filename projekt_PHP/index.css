@@ -8,13 +8,12 @@ body{
     background: rgba(173, 184, 113, 0.438); 
     text-align: center;
     height: 600px;
-    justify-content: center;
-    align-items: center;
     padding-bottom: 50px;
 }
 
 #tytul{
-    margin: 100px;;
+    margin: 100px;
+    text-align: center;
 }
 
 

@@ -9,15 +9,6 @@
 
 include ('./polaczenie.php');
 
-try{
-
-    $baza=new PDO(DSN,UZYTKOWNIK,HASLO);
-
-}
-catch(PDOException $e){
-    echo "Bląd połączenia; ".$e->getMessage();
-}
-
 $sql="INSERT INTO Klienci(imie,nazwisko,pesel,mail,telefon,login,haslo) values (?,?,?,?,?,?,?)";
 $zapytanie=$baza->prepare($sql);
 $zapytanie->execute(array($_POST["imie"],$_POST['nazwisko'],$_POST['pesel'],$_POST['mail'],$_POST['telefon'],$_POST['login'],$_POST['haslo']));

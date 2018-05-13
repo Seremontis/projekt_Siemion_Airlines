@@ -1,0 +1,98 @@
+html,body{
+    background: url(".\\img\\personel.png");
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    margin: 0px;
+}
+
+#kontener{
+    height: 100%;
+    width: 100%;
+}
+
+#panel{
+    height:30px;
+    width: 100%;
+}
+#wyloguj{
+    float: right;
+    height: 15px;
+    padding: 5px;
+    width: 80px;
+    text-align: center;
+    font-size: 12px;
+    margin-right: 20px;
+    background-color: blue;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    color:white;
+}
+#powrot{
+    float:left;
+    height: 15px;
+    padding: 5px;
+    width: 50px;
+    text-align: center;
+    font-size: 12px;
+    background-color: blue;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-left: 30px;
+    color:white;
+
+}
+a{
+    text-decoration: none;
+}
+#wyloguj:hover,#powrot:hover{
+    background-color: rgb(112, 25, 25);
+    color:orange;
+}
+
+#opcje{
+    float: left;
+    height:100%;
+    overflow: auto;
+    width: auto;
+    margin:5px;
+    margin-left:10px;
+    margin-right: 10px;
+}
+
+li{
+    margin-top:10px;
+}
+
+button{
+    border-radius: 5px;
+    background-color: rgb(40, 93, 153);
+    color:white;
+    border: none;
+    margin-left: 10px;
+    padding:5px;
+}
+
+
+button:hover,#przek:hover{
+    background-color: rgb(52, 172, 180);
+}
+
+#wyszukiwarka1{
+    text-align: center;
+}
+
+fieldset{
+    text-align: right;
+    min-width: 300px;
+}
+
+input,select{
+    width:150px;
+}
+
+input[type=time],input[type=date]{
+    text-align: center;
+}
+

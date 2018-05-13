@@ -1,32 +1,45 @@
 <?php
 include ('./polaczenie.php');
 
-try{
+session_start();
 
-    $baza=new PDO(DSN,UZYTKOWNIK,HASLO);
+if(isset($_SESSION["zalogowany"]) && $_SESSION["Login"]){
+    if($_SESSION["zalogowany"]=="Pracownik"){
+        header('Location: pracownik.php');
+        exit;
+    }
+
+    else if($_SESSION["zalogowany"]=="Klienci"){
+        header('Location: uzytkownik.php');
+        exit;
+    }
 
 }
-catch(PDOException $e){
-    echo "Bląd połączenia; ".$e->getMessage();
-} 
-if($_POST["kto"]=="Klient"){
-$sql="SELECT login,haslo FROM Klienci where login LIKE ? AND haslo LIKE ?";
+
+if(isset($_POST["kto"])=="Pracownik"){
+$sql="SELECT login,haslo FROM Pracownicy where login LIKE ? AND haslo LIKE ?";
 $zapytanie=$baza->prepare($sql);
 $zapytanie->execute(array($_POST["login"],$_POST["haslo"]));
 }
 else{
-    $sql="SELECT login,haslo FROM Pracownicy where login LIKE ? AND haslo LIKE ?";
+    $sql="SELECT id_klienta,login,haslo FROM Klienci where login LIKE ? AND haslo LIKE ?";
     $zapytanie=$baza->prepare($sql);
-    $zapytanie->execute(array($_POST["login"],$_POST["haslo"]));
+    $data=$zapytanie->execute(array($_POST["login"],$_POST["haslo"]));
+
 }
 $ilosc=$zapytanie->rowCount();
-if($ilosc>0){
-    if($_POST["kto"]=="Klient"){
-    header('Location: uzytkownik.html');
-    exit;
+if($ilosc==1){
+    if($_POST["kto"]=='Pracownik'){
+        header('Location: pracownik.php');
+        $_SESSION["zalogowany"]="Pracownik";
+        while($data->fetch())
+        $_SESSION["Login"]=$data[0];
+        exit;
     }
     else{
-        header('Location: index.php');
+        header('Location: uzytkownik.php');
+        $_SESSION["zalogowany"]="Klient";
+        $_SESSION["Login"]=$_POST["login"];
         exit;   
     }
 }
@@ -62,7 +75,6 @@ else{
                         <input type="password" name="haslo" placeholder="Hasło" required/>
                     </p>
                     <p>
-                        <input type="hidden" name="kto" value="Klient" />
                         <input type="checkbox" name="kto" value="Pracownik"style="width:20px;">Jestem pracownikiem</input>
                     </p>
                     <p>
