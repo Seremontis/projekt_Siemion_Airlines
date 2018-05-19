@@ -2,7 +2,7 @@
 include ('./polaczenie.php');
 session_start();
 
-if(isset($_SESSION["zalogowany"]) && $_SESSION["Login"]){
+if(isset($_SESSION["zalogowany"]) && isset($_SESSION["login"])){
     if($_SESSION["zalogowany"]=="Pracownik"){
         header('Location: pracownik.php');
         exit;
@@ -46,16 +46,18 @@ if(isset($_SESSION["zalogowany"]) && $_SESSION["Login"]){
                         <input type="password" name="haslo" placeholder="Hasło" required/>
                     </p>
                     <p>
-                        <input type="checkbox"name="kto" value="Pracownik" style="width:20px;"><label>Jestem pracownikiem</label>
+                        <label><input type="checkbox"name="kto" value="Pracownik" style="width:20px;">Jestem pracownikiem</label>
                     </p>
 
                     <p>
-                        <input type="submit" id="zatwierdz" content="Zaloguj" />
+                        <input type="submit" id="zatwierdz" value="Zaloguj" />
                     </p>
                 </form>
             </fieldset>
             <div id="odsylacz">
-                <a href="zarejestruj.php">Rejestracja</a>
+                <div id="powrot"><a href="index1.php">Powrót</a></div>
+                <div style="cler:both;"></div>
+                <div id="rejestracja"><a href="zarejestruj.php">Rejestracja</a></div>
             </div>
         </div>
     </div>

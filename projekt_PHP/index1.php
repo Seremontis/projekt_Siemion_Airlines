@@ -17,8 +17,8 @@ session_start();
     <a href="zaloguj.php"><div id="zaloguj">Zaloguj się</div></a>
     <div style="clear:both;"></div>
     <div id="tytul">
-    <h1 class="anim">Siemion Airlines</h1>
-    <img id="samolot" src=".\img\airplane-shape.png"/></div>  
+    <div class="test"><h1 class="anim">Siemion Airlines</h1></div>
+    <div class="test"><img id="samolot" src=".\img\airplane-shape.png"/></div> </div><div style="clear:both;"></div>
     </div>
     <div class="log"> </div> 
 <div id="tresc">Siemion Airlines to linie lotniczne dla wszystkich.Świadczymy najwyższej jakości usługi oraz wciąż się rozwijamy, aby nie zostać w tyle.</div>

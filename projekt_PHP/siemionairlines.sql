@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 13 Maj 2018, 20:42
+-- Czas generowania: 19 Maj 2018, 14:57
 -- Wersja serwera: 10.1.31-MariaDB
 -- Wersja PHP: 7.2.3
 
@@ -62,7 +62,7 @@ CREATE TABLE `pracownicy` (
 --
 
 INSERT INTO `pracownicy` (`id_pracownika`, `Imie`, `Nazwisko`, `PESEL`, `mail`, `telefon`, `adres_zamieszkania`, `login`, `haslo`) VALUES
-(1, 'Adam', 'Nowak', '231341232', 'adma@adc.com', '122431442', 'Katowice, ul.Polna 32/1', 'Admin', 'kij123');
+(1, 'Adam', 'Nowak', '231341232', 'adma@adc.com', '122431442', '', 'Admin', 'kij123');
 
 -- --------------------------------------------------------
 
@@ -101,8 +101,8 @@ CREATE TABLE `samolot` (
   `id_samolotu` int(11) NOT NULL,
   `model` varchar(50) NOT NULL,
   `marka` varchar(50) NOT NULL,
-  `ilosc_miejsc` int(11) NOT NULL,
-  `zasieg` int(11) NOT NULL
+  `nr_taborowy` varchar(5) NOT NULL,
+  `ilosc_miejsc` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -115,7 +115,6 @@ CREATE TABLE `trasa` (
   `id_trasy` int(11) NOT NULL,
   `Skad` varchar(50) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
   `Dokad` varchar(50) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
-  `dystans` int(11) NOT NULL,
   `zalecana_pojemnosc` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -140,16 +139,16 @@ ALTER TABLE `pracownicy`
 --
 ALTER TABLE `rezerwacje`
   ADD PRIMARY KEY (`id_rezerwacji`),
-  ADD KEY `id_klienta` (`id_klienta`),
-  ADD KEY `id_rozklad` (`id_rozklad`);
+  ADD KEY `rezerwacje_ibfk_1` (`id_klienta`),
+  ADD KEY `rezerwacje_ibfk_2` (`id_rozklad`);
 
 --
 -- Indeksy dla tabeli `rozklad`
 --
 ALTER TABLE `rozklad`
   ADD PRIMARY KEY (`id_rozkladu`),
-  ADD KEY `id_samolotu` (`id_samolotu`),
-  ADD KEY `id_trasy` (`id_trasy`);
+  ADD KEY `rozklad_ibfk_1` (`id_samolotu`),
+  ADD KEY `rozklad_ibfk_2` (`id_trasy`);
 
 --
 -- Indeksy dla tabeli `samolot`
@@ -211,15 +210,15 @@ ALTER TABLE `trasa`
 -- Ograniczenia dla tabeli `rezerwacje`
 --
 ALTER TABLE `rezerwacje`
-  ADD CONSTRAINT `rezerwacje_ibfk_1` FOREIGN KEY (`id_klienta`) REFERENCES `klienci` (`id_klienta`),
-  ADD CONSTRAINT `rezerwacje_ibfk_2` FOREIGN KEY (`id_rozklad`) REFERENCES `rozklad` (`id_rozkladu`);
+  ADD CONSTRAINT `rezerwacje_ibfk_1` FOREIGN KEY (`id_klienta`) REFERENCES `klienci` (`id_klienta`) ON DELETE CASCADE,
+  ADD CONSTRAINT `rezerwacje_ibfk_2` FOREIGN KEY (`id_rozklad`) REFERENCES `rozklad` (`id_rozkladu`) ON DELETE CASCADE;
 
 --
 -- Ograniczenia dla tabeli `rozklad`
 --
 ALTER TABLE `rozklad`
-  ADD CONSTRAINT `rozklad_ibfk_1` FOREIGN KEY (`id_samolotu`) REFERENCES `samolot` (`id_samolotu`),
-  ADD CONSTRAINT `rozklad_ibfk_2` FOREIGN KEY (`id_trasy`) REFERENCES `trasa` (`id_trasy`);
+  ADD CONSTRAINT `rozklad_ibfk_1` FOREIGN KEY (`id_samolotu`) REFERENCES `samolot` (`id_samolotu`) ON DELETE CASCADE,
+  ADD CONSTRAINT `rozklad_ibfk_2` FOREIGN KEY (`id_trasy`) REFERENCES `trasa` (`id_trasy`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

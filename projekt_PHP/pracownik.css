@@ -96,3 +96,32 @@ input[type=time],input[type=date]{
     text-align: center;
 }
 
+
+#edytuj{
+    border:none;
+    background: url('.\\img\\edytuj.png');
+    height: 35px;
+    width: 35px;
+    cursor:pointer;
+    border-radius: 25px;
+    float: left;
+}
+
+#usun{
+    border:none;
+    background: url('.\\img\\usun.png');
+    height: 35px;
+    width: 35px;
+    cursor:pointer;
+    border-radius: 25px;
+    float: right;
+}
+
+#usunrez{
+    border:none;
+    background: url('.\\img\\usun.png');
+    height: 35px;
+    width: 35px;
+    cursor:pointer;
+    border-radius: 25px;
+}

@@ -1,9 +1,18 @@
 <?php
 include ('./polaczenie.php');
-
 session_start();
 
-if(isset($_SESSION["zalogowany"]) && $_SESSION["Login"]){
+function zapisz($login,$kto,$dane){
+    $plik='./dziennik.txt';
+    $fp = fopen($plik, 'a');
+    $czas=date('d-m-Y H:i:s');
+    $zapisz="Login: {$login}\ttyp konta:{$kto}\tpołączenie {$dane}udane\t{$czas}\n";
+    fwrite($fp,$zapisz);
+    fclose($fp);
+}
+
+if(isset($_SESSION["zalogowany"]) && isset($_SESSION["login"])){
+                  
     if($_SESSION["zalogowany"]=="Pracownik"){
         header('Location: pracownik.php');
         exit;
@@ -15,35 +24,44 @@ if(isset($_SESSION["zalogowany"]) && $_SESSION["Login"]){
     }
 
 }
-
+$ilosc;
 if(isset($_POST["kto"])=="Pracownik"){
-$sql="SELECT login,haslo FROM Pracownicy where login LIKE ? AND haslo LIKE ?";
+$sql="SELECT id_pracownika,login,haslo FROM Pracownicy where login LIKE ? AND haslo LIKE ?";
 $zapytanie=$baza->prepare($sql);
 $zapytanie->execute(array($_POST["login"],$_POST["haslo"]));
+$ilosc=$zapytanie->rowCount();
 }
 else{
     $sql="SELECT id_klienta,login,haslo FROM Klienci where login LIKE ? AND haslo LIKE ?";
     $zapytanie=$baza->prepare($sql);
-    $data=$zapytanie->execute(array($_POST["login"],$_POST["haslo"]));
-
+    $zapytanie->execute(array($_POST["login"],$_POST["haslo"]));
+    $ilosc=$zapytanie->rowCount();
 }
-$ilosc=$zapytanie->rowCount();
+
 if($ilosc==1){
-    if($_POST["kto"]=='Pracownik'){
-        header('Location: pracownik.php');
+
+ $dane=$zapytanie->fetch();
+    if(isset($_POST["kto"])=='Pracownik'){      
         $_SESSION["zalogowany"]="Pracownik";
-        while($data->fetch())
-        $_SESSION["Login"]=$data[0];
+        $_SESSION["login"]=$dane[0];
+        zapisz( $_SESSION["login"], $_SESSION["zalogowany"],"");
+        header('Location: pracownik.php');
         exit;
     }
-    else{
-        header('Location: uzytkownik.php');
+    else{     
         $_SESSION["zalogowany"]="Klient";
-        $_SESSION["Login"]=$_POST["login"];
-        exit;   
+        $_SESSION["login"]=$dane['id_klienta'];
+        zapisz( $_SESSION["login"], $_SESSION["zalogowany"],"");
+        header('Location: uzytkownik.php');
+        exit; 
     }
 }
 else{
+    $_SESSION['nick']=$_POST['login'];
+    $_SESSION['blad']="błędny login bądź hasło";
+    zapisz( $_SESSION["nick"], "---","nie");
+    if(isset($_POST['kto']))
+        $_SESSION['check']="checked";
 ?>
 
 <!DOCTYPE HTML>
@@ -69,28 +87,32 @@ else{
                 <legend>Logowanie</legend>
                 <form action="zaloguj1.php" method="POST" accept-charset="UTF-8">
                     <p>
-                        <input type="text" name="login" placeholder="Login" required/>
+                        <input type="text" name="login" value="<?php if(isset($_SESSION['nick'])){ echo $_SESSION['nick']; unset ($_SESSION['nick']);}?>" placeholder="Login" required/>
                     </p>
 
                     <p>
                         <input type="password" name="haslo" placeholder="Hasło" required/>
                     </p>
                     <p>
-                        <input type="checkbox" name="kto" value="Pracownik"style="width:20px;">Jestem pracownikiem</input>
+                        <label><input type="checkbox" name="kto" value="Pracownik" style="width:20px;" <?php if(isset($_SESSION["check"])){ echo "checked"; unset ($_SESSION["check"]);}?>>Jestem pracownikiem</input></label>
                     </p>
                     <p>
-                        <input type="submit" id="zatwierdz" content="Zaloguj" />
+                        <input type="submit" id="zatwierdz" value="Zaloguj" />
                     </p>
                     <p id="zle" style="margin-top:10px;">
                     <?php
-                    echo '<span style="color:rgb(148, 6, 6);">Nieprawidłowy login bądź hasło</span>';
+                    echo "<span style='color:rgb(148, 6, 6);'>";
+                    if(isset($_SESSION["blad"])) { echo $_SESSION["blad"]; unset ($_SESSION["check"]);}
+                    echo "</span>";
                     }
                     ?>
                     </p>
                 </form>
             </fieldset>
             <div id="odsylacz">
-                <a href="zarejestruj.php">Rejestracja</a>
+                <div id="powrot"><a href="index1.php">Powrót</a></div>
+                <div style="cler:both;"></div>
+                <div id="rejestracja"><a href="zarejestruj.php">Rejestracja</a></div>
             </div>
         </div>
     </div>

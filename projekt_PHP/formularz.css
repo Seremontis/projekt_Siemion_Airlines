@@ -1,0 +1,49 @@
+html,body{
+    background: url(".\\img\\personel.png");
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    margin: 0px;
+}
+
+#kontener{
+    height: 100%;
+    width: 100%;
+}
+
+#kontener {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #edytujsamolot,#edytujtrasa,#edytujklienci,#rozklad {
+    background-color: #00ffff9f;
+    background-color: rgba(0, 247, 255, 0.507);
+    width: auto;
+    height: auto;
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+    border: darkkhaki 2px solid;
+  }
+
+  input,#t,#s,button{
+      width: 100%;
+      box-sizing:border-box;
+  }
+
+  button{
+      margin-top:10px;
+  }
+
+  input[type=submit]:hover,button:hover{
+      background-color: chartreuse;
+  }
+
+  a{
+      text-decoration: none;
+      color:black;
+  }

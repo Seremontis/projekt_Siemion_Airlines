@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-if(isset($_SESSION["zalogowany"])==false || empty($_SESSION["zalogowany"]==true || $_SESSION["zalogowany"]!="Pracownik")){
-        echo "<script>alert('Nie ma uprawnień do tego miejsca');
+if(isset($_SESSION["zalogowany"])==false || empty($_SESSION["zalogowany"])==true || $_SESSION["zalogowany"]!="Pracownik"){
+        echo "<script>alert('Nie ma uprawnień do tego miejsca, zaloguj się');
         window.location.href = 'index1.php';</script>";
         exit;
 
@@ -10,46 +10,72 @@ if(isset($_SESSION["zalogowany"])==false || empty($_SESSION["zalogowany"]==true 
 
 include ('polaczenie.php');
 
-if(isset($_GET["operacja"])==true)
-    $operacja=$_GET["operacja"];
+if(isset($_POST["operacja"])==true)
+    $operacja=$_POST["operacja"];
 else
     $operacja='';
 
 
 if($operacja=="samolot"){
-    $sql="INSERT INTO samolot(model,marka,ilosc_miejsc,zasieg) values (?,?,?,?)";
+    $sql="SELECT nr_taborowy FROM samolot WHERE nr_taborowy=?";
+    $spr=$baza->prepare($sql);
+    $spr->execute(array($_POST['nr_taborowy']));
+    if($spr->rowCount()==0){
+    $sql="INSERT INTO samolot(model,marka,nr_taborowy,ilosc_miejsc) values (?,?,?,?)";
     $zapytanie=$baza->prepare($sql);
-    $zapytanie->execute(array($_GET["model"],$_GET["marka"],$_GET["miejsca"],$_GET["dystans"]));
+    $zapytanie->execute(array($_POST["model"],$_POST["marka"],$_POST["nr_taborowy"],$_POST["miejsca"]));
 
     if($zapytanie->rowCount()>0)
         echo "<script>alert('Wykonano pomyślnie');</script>";  
     else
         echo "<script>alert('Niepowodzenie');</script>"; 
-        
+    }
+    else{
+        echo "<script>alert('istnieje już samolot o tym nr_taborowym');";
+    }    
     $operacja='';    
 }
 else if($operacja=="trasa"){
-    $sql="INSERT INTO trasa(skad,dokad,dystans,zalecana_pojemnosc) values (?,?,?,?)";
+    $sql="SELECT skad,dokad FROM trasa WHERE skad=? AND dokad=?";
+    $spr=$baza->prepare($sql);  
+    $spr->execute(array($_POST['start'],$_POST['meta']));
+    if($spr->rowCount()==0){
+    $sql="INSERT INTO trasa(skad,dokad,zalecana_pojemnosc) values (?,?,?)";
     $zapytanie=$baza->prepare($sql);
-    $zapytanie->execute(array($_GET["start"],$_GET["meta"],$_GET["dystans"],$_GET["pojemnosc"]));
+    $zapytanie->execute(array($_POST["start"],$_POST["meta"],$_POST["pojemnosc"]));
 
     if($zapytanie->rowCount()>0)
         echo "<script>alert('Wykonano pomyślnie');</script>";  
     else
         echo "<script>alert('Niepowodzenie');</script>";  
         $operacja='';
+    }
+    else "<scirpt>alert('Podana trasa już istnieje');";
 }
 else if($operacja=="rozklad"){
-    $sql="INSERT INTO rozklad(data,godzina,id_trasy,id_samolotu) values (?,?,?,?)";
+    if($_POST['trasa']!='brak' AND $_POST['samolot']!='brak'){
+     $data=time();
+    if($_POST["data"]>date('Y-m-d') && $_POST["godzina"]>date('h:i')){
+    $sql="SELECT id_rozkladu FROM rozklad WHERE data=? AND godzina=? AND id_trasy=? AND id_samolotu=?";
     $zapytanie=$baza->prepare($sql);
-    $zapytanie->execute(array($_GET["data"],$_GET["godzina"],$_GET["trasa"],$_GET["samolot"]));
+    $zapytanie->execute(array($_POST["data"],$_POST["godzina"],$_POST["trasa"],$_POST["samolot"]));
+    if($zapytanie->rowCount()==0){
+        $sql="INSERT INTO rozklad(data,godzina,id_trasy,id_samolotu) values (?,?,?,?)";
+        $zapytanie1=$baza->prepare($sql);
+        $zapytanie1->execute(array($_POST["data"],$_POST["godzina"],$_POST["trasa"],$_POST["samolot"]));
 
-    if($zapytanie->rowCount()>0)
-        echo "<script>alert('Wykonano pomyślnie');</script>";  
-    else
-        echo "<script>alert('Niepowodzenie');</script>";  
-
-        $operacja='';
+        if($zapytanie1->rowCount()>0)
+            echo "<script>alert('Wykonano pomyślnie');</script>";  
+        else
+            echo "<script>alert('Niepowodzenie');</script>";  
+        }
+    else echo "<script>alert('Podany rozkład już istnieje');</script>";  
+        
+    }
+    else echo "<script>alert('Podana godzina bądź data jest nieaktualna');</script>";            
+    }
+    else echo "<script>alert('Brak wybranego samolotu bądź trasy');</script>";
+    $operacja='';
 }
 
 ?>
@@ -68,13 +94,9 @@ else if($operacja=="rozklad"){
     <script>
 
         $(document).ready(function () {
-        $("#rozklad").hide(0, function () {
-        });
-        $("#samolot").hide(0, function () {
-        });
-        $("#trasa").hide(0, function () {
-        });
-
+        $("#rozklad").hide();
+        $("#samolot").hide();
+        $("#trasa").hide();
             $("#dodajroz").click(function () {
                 $("#rozklad").toggle("slow", function () {
                 });
@@ -93,6 +115,7 @@ else if($operacja=="rozklad"){
                 $("#samolot").hide(function () { });
                 $("#rozklad").hide(function () { });
             });
+
         })
 
     </script>
@@ -116,9 +139,7 @@ else if($operacja=="rozklad"){
                     <button id="dodajsam">Dodaj samolot</button>
                 </li>
                 <div id="samolot">
-                    <form action="pracownik.php" method="get">
-                        <?php
-                            ?>
+                    <form action="pracownik.php" method="POST">
                         <fieldset>
                             <p>Model:
                                 <input type="text" name="model" placeholder="Model" required />
@@ -126,11 +147,12 @@ else if($operacja=="rozklad"){
                             <p>Marka:
                                 <input type="text" name="marka" placeholder="Marka" required/>
                             </p>
-                            <p>ilosc miejsc:
-                                <input type="number" name="miejsca" placeholder="pojemność" required/>
+                            <p>Nr taborowy:
+                                <input type="text" name="nr_taborowy" placeholder="nr_taborowy" maxlength="5" required/>
                             </p>
-                            <p>Zasięg[km]:
-                                <input type="number" name="dystans" placeholder="Zasięg" required/>
+
+                            <p>ilosc miejsc:
+                                <input type="number" name="miejsca" placeholder="pojemność" value="50" required/>
                             </p>
 
                             <p>
@@ -144,7 +166,7 @@ else if($operacja=="rozklad"){
                     <button id="dodajtrase">Dodaj trasę</button>
                 </li>
                 <div id="trasa">
-                    <form action="pracownik.php" method="get">
+                    <form action="pracownik.php" method="POST">
                         <fieldset>
                             <p>Skąd:
                                 <input type="text" name="start" placeholder="Skąd" required/>
@@ -152,11 +174,9 @@ else if($operacja=="rozklad"){
                             <p>Dokąd:
                                 <input type="text" name="meta" placeholder="Dokąd" required/>
                             </p>
-                            <p>Dystans:
-                                <input type="number" name="dystans" placeholder="Dystans" required/>
-                            </p>
+                            
                             <p>Zalecana pojemność:
-                                <input type="number" name="pojemnosc" placeholder="Zalecana pojemność" required/>
+                                <input type="number" name="pojemnosc" placeholder="Zalecana pojemność" value="50" required/>
                             </p>
 
                             <p>
@@ -172,13 +192,13 @@ else if($operacja=="rozklad"){
                     <button id="dodajroz">Dodaj rozklad</button>
                 </li>
                 <div id="rozklad">
-                    <form action="pracownik.php" method="get">
+                    <form action="pracownik.php" method="POST">
                         <fieldset>
                             <p>Data:
-                                <input type="date" name="data" placeholder="Data" required/>
+                                <input type="date" name="data" placeholder="Data" value="<?php echo date('Y-m-d');?>" required/>
                             </p>
                             <p>Godzina:
-                                <input type="time" name="godzina" placeholder="Data" required/>
+                                <input type="time" name="godzina" placeholder="time" value="<?php echo date('H:i');?>"  required/>
                             </p>
                             <p>Trasa:
                                 <select name="trasa">
@@ -214,7 +234,7 @@ else if($operacja=="rozklad"){
                             </p>
 
                             <p>
-                                <input type="hidden" name="operacja" value="samolot"/>
+                                <input type="hidden" name="operacja" value="rozklad"/>
                                 <input type="submit" value="Zatwierdź" />
                             </p>
                         </fieldset>
