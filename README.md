@@ -2,10 +2,10 @@
 
 <h1> Projekt linii lotniczych</h1>
 <hr />
-<ul>Co jeszcze:
+<ul>Co jeszcze można zrobić:
   <li>posprawdzać poprawność danych</li>
   <li>poprawić kontrolę danych przy tworzeniu danych przez pracownika</li>
-  <li>(opcjonalne) usuwanie konta klienta</li>
+  <li>(opcjonalne) usuwanie konta pracownika</li>
   </ul>
   
   <hr />
