@@ -1,9 +1,0 @@
-html,body{
-    height: 100%;
-    overflow: hidden;
-    background: url(".\\img\\check.png") fixed;
-}
-
-h1{
-    background-color: greenyellow;
-}
