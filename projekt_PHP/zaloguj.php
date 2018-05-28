@@ -1,20 +1,8 @@
 <?php
-include ('./polaczenie.php');
-session_start();
+require('zalogujp.php');
 
-if(isset($_SESSION["zalogowany"]) && isset($_SESSION["login"])){
-    if($_SESSION["zalogowany"]=="Pracownik"){
-        header('Location: pracownik.php');
-        exit;
-    }
-
-    else if($_SESSION["zalogowany"]=="Klienci"){
-        header('Location: uzytkownik.php');
-        exit;
-    }
-
-}
 ?>
+
 
 <!DOCTYPE HTML>
 <html>
@@ -37,20 +25,28 @@ if(isset($_SESSION["zalogowany"]) && isset($_SESSION["login"])){
 
             <fieldset>
                 <legend>Logowanie</legend>
-                <form action="zaloguj1.php" method="POST">
+                <form action="zaloguj.php" method="POST" accept-charset="UTF-8">
                     <p>
-                        <input type="text" name="login" placeholder="Login" required/>
+                        <input type="text" name="login" value="<?php if(isset($_SESSION['nick'])){ echo $_SESSION['nick']; unset ($_SESSION['nick']);}?>" placeholder="Login" required/>
                     </p>
 
                     <p>
                         <input type="password" name="haslo" placeholder="Hasło" required/>
                     </p>
                     <p>
-                        <label><input type="checkbox"name="kto" value="Pracownik" style="width:20px;">Jestem pracownikiem</label>
+                        <label><input type="checkbox" name="kto" value="Pracownik" style="width:20px;" <?php if(isset($_SESSION["check"])){ echo "checked"; unset ($_SESSION["check"]);}?>>Jestem pracownikiem</input></label>
                     </p>
-
                     <p>
                         <input type="submit" id="zatwierdz" value="Zaloguj" />
+                    </p>
+                    <p id="zle" style="margin-top:10px;">
+                    <?php
+                    echo "<span style='color:rgb(148, 6, 6);'>";
+                    if(isset($_SESSION["blad"])) { echo $_SESSION["blad"]; unset ($_SESSION["blad"]);}
+                    echo "</span>";
+                    
+                
+                    ?>
                     </p>
                 </form>
             </fieldset>

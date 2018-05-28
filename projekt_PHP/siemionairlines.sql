@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 19 Maj 2018, 14:57
+-- Czas generowania: 28 Maj 2018, 18:55
 -- Wersja serwera: 10.1.31-MariaDB
 -- Wersja PHP: 7.2.3
 
@@ -36,7 +36,7 @@ CREATE TABLE `klienci` (
   `mail` varchar(30) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `telefon` varchar(15) NOT NULL,
   `login` varchar(20) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
-  `haslo` varchar(20) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL
+  `haslo` varchar(50) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -54,15 +54,9 @@ CREATE TABLE `pracownicy` (
   `telefon` varchar(15) NOT NULL,
   `adres_zamieszkania` varchar(50) NOT NULL,
   `login` varchar(15) NOT NULL,
-  `haslo` varchar(15) NOT NULL
+  `haslo` varchar(50) NOT NULL,
+  `Uprawnienia` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Zrzut danych tabeli `pracownicy`
---
-
-INSERT INTO `pracownicy` (`id_pracownika`, `Imie`, `Nazwisko`, `PESEL`, `mail`, `telefon`, `adres_zamieszkania`, `login`, `haslo`) VALUES
-(1, 'Adam', 'Nowak', '231341232', 'adma@adc.com', '122431442', '', 'Admin', 'kij123');
 
 -- --------------------------------------------------------
 
@@ -176,7 +170,7 @@ ALTER TABLE `klienci`
 -- AUTO_INCREMENT dla tabeli `pracownicy`
 --
 ALTER TABLE `pracownicy`
-  MODIFY `id_pracownika` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pracownika` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT dla tabeli `rezerwacje`

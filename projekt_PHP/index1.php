@@ -8,6 +8,9 @@ session_start();
 <title>Siemion Airlines</title>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="index.css" />
+<meta name="description" content="Strona główna Siemion Airlines">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Karol Ścigała">
 <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 </head>
 
