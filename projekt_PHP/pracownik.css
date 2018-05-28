@@ -53,7 +53,7 @@ a{
 
 #opcje{
     float: left;
-    height:100%;
+    min-height:500px;
     overflow: auto;
     width: auto;
     margin:5px;
@@ -124,4 +124,22 @@ input[type=time],input[type=date]{
     width: 35px;
     cursor:pointer;
     border-radius: 25px;
+}
+
+#opcja{
+    width:155px;;
+    margin:auto;
+    margin-top:20px
+}
+
+#generuj{
+    color:white;
+    border:solid 2px white;
+    border-radius:20px;
+    background:gray;padding:5px;
+}
+
+#generuj:hover{
+    background: greenyellow;
+    color:black;
 }
