@@ -8,7 +8,6 @@ $pdf=new FPDF();
 $pdf->AddPage();
 $pdf->SetFont('Courier','BIU',30);
 $pdf->SetTextColor(0, 102, 255);
-//$pdf->Cell(190,260,'Hello World!',0,1,'R',TRUE);
 $pdf->SetFillColor(153, 255, 51);
 $pdf->Cell(80,50,'','LTB',0,'R',true);
 $pdf->Image('.\img\airplane-shape.png',20,15,40);
@@ -25,7 +24,7 @@ $linia="SELECT r.Data,r.godzina,t.Skad,t.dokad,concat(s.marka,' ',s.model) FROM 
 $wyk=$baza->query($linia);
 $ilosc=$wyk->rowCount();
 if($ilosc==0)
-    $pdf->Cell(190,50,"Brak lotów",1,1);
+    $pdf->Cell(190,50,"Brak lotow",1,1);
 else{
     $pdf->SetFont('Arial','B',14);
     $pdf->Cell(10,10,"L.p.",1,0,'C');

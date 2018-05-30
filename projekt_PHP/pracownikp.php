@@ -3,8 +3,6 @@ session_start();
 require ('kontrolaupr.php');
 
 
-
-
 function dodajDoBazy(){
     error_reporting(0);
     include('polaczenie.php');
@@ -97,7 +95,7 @@ else if($operacja=="rozklad"){
     
     
     }
-    else{
+        else{
         $_SESSION["imie"]=$_POST["imie"];
         $_SESSION["nazwisko"]=$_POST['nazwisko'];
         $_SESSION["pesel"]=$_POST['pesel'];
@@ -107,7 +105,7 @@ else if($operacja=="rozklad"){
         $_SESSION["login"]=$_POST['login'];
         $_SESSION["upr"]=$_POST['upr'];
         echo "<script>alert('Zakończono niepowodzeniem');</script>";
-    }
+        }
     }
     else{
         $_SESSION["imie"]=$_POST["imie"];

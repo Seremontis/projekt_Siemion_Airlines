@@ -14,15 +14,15 @@ function zapisz($login,$kto,$dane){
 }
 
 function kontrolaDostepu(){
-if(isset($_SESSION["zalogowany"]) && isset($_SESSION["login"])){
+if(isset($_SESSION["zalogowany"]) && isset($_SESSION["log"])){
                   
     if($_SESSION["zalogowany"]=="Pracownik"){
-        header('Location: pracownik.php');
+        header('Location: .\pracownik.php');
         exit;
     }
 
     else if($_SESSION["zalogowany"]=="Klienci"){
-        header('Location: uzytkownik.php');
+        header('Location: .\uzytkownik.php');
         exit;
     }
 }
@@ -50,17 +50,17 @@ if($ilosc==1){
  $dane=$zapytanie->fetch();
     if(isset($_POST["kto"])=='Pracownik'){      
         $_SESSION["zalogowany"]="Pracownik";
-        $_SESSION["login"]=$dane[0];
+        $_SESSION["log"]=$dane[0];
         if($dane[3]!=0)
             $_SESSION["uprawnienia"]=$dane[3];
-        zapisz( $_SESSION["login"], $_SESSION["zalogowany"],"");
+        zapisz( $_SESSION["log"], $_SESSION["zalogowany"],"");
         header('Location: pracownik.php');
         exit;
     }
     else{     
         $_SESSION["zalogowany"]="Klient";
-        $_SESSION["login"]=$dane['id_klienta'];
-        zapisz( $_SESSION["login"], $_SESSION["zalogowany"],"");
+        $_SESSION["log"]=$dane['id_klienta'];
+        zapisz( $_SESSION["log"], $_SESSION["zalogowany"],"");
         header('Location: uzytkownik.php');
         exit; 
     }

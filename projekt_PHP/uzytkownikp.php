@@ -36,7 +36,7 @@ if(isset($_GET['dodaj'])){
 
 
     if($zapytanie->rowCount()==1){
-        header("Location: uzytkownik.php?skad={$_SESSION['skad']}&dokad={$_SESSION['dokad']}");
+        header("Location: .\uzytkownik.php?skad={$_SESSION['skad']}&dokad={$_SESSION['dokad']}");
         exit;
     }
 }
@@ -63,7 +63,7 @@ if(isset($_GET['usun'])){
 
     if($zapytanie->rowCount()==1){
         
-        header("Location: uzytkownik.php?skad={$_SESSION['skad']}&dokad={$_SESSION['dokad']}");
+        header("Location: .\uzytkownik.php?skad={$_SESSION['skad']}&dokad={$_SESSION['dokad']}");
         exit;
     }
 }

@@ -202,18 +202,18 @@ require_once('polaczenie.php');
                                 <input type="tel" name="telefon" placeholder="telefon" minlength="9" value="<?php if(isset($_SESSION['telefon'])) { echo $_SESSION["telefon"]; unset ($_SESSION["telefon"]);} ?>" required/>
                             </p>
                             <p>Adres zamieszkania:
-                                <input type="txt" name="adres" placeholder="adres" value="<?php if(isset($_SESSION['adres'])) { echo $_SESSION["adres"]; unset ($_SESSION["adres"]);} ?>" />
+                                <input type="text" name="adres" placeholder="adres" value="<?php if(isset($_SESSION['adres'])) { echo $_SESSION["adres"]; unset ($_SESSION["adres"]);} ?>" />
                             </p>
                             <p>Login:
-                                <input type="text" name="login" placeholder="login" value="<?php if(isset($_SESSION['login'])) { echo $_SESSION["login"]; unset ($_SESSION["login"]);} ?>" required/>
+                                <input type="text" name="login" placeholder="login" value="<?php if(isset($_SESSION["login"])) { echo $_SESSION["login"]; unset ($_SESSION["login"]);} ?>" required/>
                             </p>
                             <p>Hasło:
                                 <input type="password" name="haslo" placeholder="hasło" required/>
                             </p>
                             <p>Uprawnienia:<select name="upr">
                                 
-                                <option value="0" <?php if(isset($_SESSION['upr'])==0) {echo "select"; unset ($_SESSION['upr']);} ?>>Zwykły pracownik</option>
-                                <option value="1" <?php if(isset($_SESSION['upr'])==1) {echo "select"; unset ($_SESSION['upr']);} ?>>Super pracownik</option>
+                                <option value="0" <?php if(isset($_SESSION['upr'])==0) {echo "selected"; unset ($_SESSION['upr']);} ?>>Zwykły pracownik</option>
+                                <option value="1" <?php if(isset($_SESSION['upr'])==1) {echo "selected"; unset ($_SESSION['upr']);} ?>>Super pracownik</option>
                                     </select>
                             </p>
 

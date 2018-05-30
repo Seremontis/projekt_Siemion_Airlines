@@ -18,13 +18,13 @@ switch($zmienna){
     $modyf->execute(array($_POST['model1'],$_POST['marka1'],$_POST['nr_taborowy1'],$_POST['pojemnosc1'],$_POST['id']));
     if($modyf->rowCount()>0)
     {
-        header('Location: http://localhost/projekt_PHP/pracownik2.php?co=samolot');
+        header('Location: .\pracownik2.php?co=samolot');
         exit;
     }
     else
     {
         echo "<script>alert('Dane nie zostały zapisane');</script>";
-        header('Location: http://localhost/projekt_PHP/pracownik2.php?co=samolot');
+        header('Location: .\pracownik2.php?co=samolot');
         exit;
 }
 
@@ -34,12 +34,12 @@ switch($zmienna){
     $modyf=$baza->prepare($sql);
     $modyf->execute(array($_POST['start'],$_POST['meta'],$_POST['pojemnosc'],$_POST['id']));
     if($modyf->rowCount()>0){
-        header('Location: http://localhost/projekt_PHP/pracownik2.php?co=trasa');
+        header('Location: .\pracownik2.php?co=trasa');
         exit;}
     else
     {
         echo "<script>alert('Dane nie zostały zapisane');</script>";
-        header('Location: http://localhost/projekt_PHP/pracownik2.php?co=trasa');
+        header('Location: .\pracownik2.php?co=trasa');
         exit;
 }
     break;
@@ -55,12 +55,12 @@ switch($zmienna){
     $modyf->bindParam(':idr', $_POST["id"], PDO::PARAM_INT);
     $modyf->execute();
     if($modyf->rowCount()>0){
-              header('Location: http://localhost/projekt_PHP/pracownik2.php?co=rozklady');
+              header('Location: .\pracownik2.php?co=rozklady');
                 exit;
     }
     else{
         echo "<script>alert('Dane nie zostały zapisane');</script>";
-        header('Location: http://localhost/projekt_PHP/pracownik2.php?co=rozklady');
+        header('Location: .\pracownik2.php?co=rozklady');
         exit;
 }
     }
@@ -74,6 +74,11 @@ switch($zmienna){
     break;
 
     case "klienci":  
+    if(sha1($_POST['haslo'])!=$_SESSION['haslo'])
+        $haslo=sha1($_POST['haslo']);
+    else
+        $haslo=$_SESSION['haslo'];
+    unset ($_SESSION['haslo']);
     $sql="UPDATE klienci SET imie=:imie,Nazwisko=:naz,PESEL=:pes,mail=:mail,telefon=:tel,login=:log,haslo=:has WHERE id_kLienta=:id";
     $modyf=$baza->prepare($sql);
     $modyf->bindParam(':imie', $_POST["imie"], PDO::PARAM_STR);
@@ -82,18 +87,47 @@ switch($zmienna){
     $modyf->bindParam(':mail', $_POST["mail"], PDO::PARAM_STR);
     $modyf->bindParam(':tel', $_POST["telefon"], PDO::PARAM_STR);
     $modyf->bindParam(':log', $_POST["login"], PDO::PARAM_STR);
-    $modyf->bindParam(':has', $_POST["haslo"], PDO::PARAM_STR);
+    $modyf->bindParam(':has', $haslo, PDO::PARAM_STR);
     $modyf->bindParam(':id', $_POST["id"], PDO::PARAM_INT);
     $modyf->execute();
     if($modyf->rowCount()>0){
-        echo "<script>alert('>0');</script>";
-        header('Location: http://localhost/projekt_PHP/pracownik2.php?co=klienci');
+        header('Location: .\pracownik2.php?co=klienci');
         
         exit;}
     else
     {
-        echo "<script>alert('Dane nie zostały zapisane');</script>";
-        header('Location: http://localhost/projekt_PHP/pracownik2.php?co=klienci');
+        header('Location: .\pracownik2.php?co=klienci');
+        exit;
+    }
+
+    break;
+
+    case "pracownicy":  
+    if(sha1($_POST['haslo'])!=$_SESSION['haslo'])
+        $haslo=sha1($_POST['haslo']);
+    else
+        $haslo=$_SESSION['haslo'];
+    unset ($_SESSION['haslo']);
+    $sql="UPDATE pracownicy SET imie=:imie,nazwisko=:naz,pesel=:pes,mail=:mail,telefon=:tel,login=:log,haslo=:has,uprawnienia=:upr,adres_zamieszkania=:adres WHERE id_pracownika=:id";
+    $modyf=$baza->prepare($sql);
+    $modyf->bindParam(':imie', $_POST["imie"], PDO::PARAM_STR);
+    $modyf->bindParam(':naz', $_POST["nazwisko"], PDO::PARAM_STR);
+    $modyf->bindParam(':pes', $_POST["pesel"], PDO::PARAM_STR);
+    $modyf->bindParam(':mail', $_POST["mail"], PDO::PARAM_STR);
+    $modyf->bindParam(':tel', $_POST["telefon"], PDO::PARAM_STR);
+    $modyf->bindParam(':log', $_POST["login"], PDO::PARAM_STR);
+    $modyf->bindParam(':has', $haslo, PDO::PARAM_STR);
+    $modyf->bindParam(':id', $_POST["id"], PDO::PARAM_INT);
+    $modyf->bindParam(':adres', $_POST["adres"], PDO::PARAM_STR);
+    $modyf->bindParam(':upr', $_POST["upr"], PDO::PARAM_INT);
+    $modyf->execute();
+    if($modyf->rowCount()>0){
+        header('Location: .\pracownik2.php?co=pracownicy');
+        exit;
+    }
+    else
+    {
+        header('Location: .\pracownik2.php?co=pracownicy');
         exit;
     }
 

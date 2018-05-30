@@ -21,11 +21,13 @@
     </div>
     <div id="wyszukiwarka1">
     <form action="pracownik2.php" method="get">
-        <button type="submit" name="co" value="samolot">samoloty</button>
+        <button type="submit" name="co" value="samolot">Samoloty</button>
         <button type="submit" name="co"  value="rozklady">Rozkłady</button>
         <button type="submit" name="co" value="rezerwacje">Rezerwacje</button>
         <button type="submit" name="co"  value="trasa">Trasy</button>
-        <button type="submit" name="co" value="klienci" >klienci</button>
+        <button type="submit" name="co" value="klienci" >Klienci</button>
+        <button type="submit" name="co" value="pracownicy" <?php if(!isset($_SESSION['uprawnienia'])) echo "disabled style='background-color:gray;color:red;'"; ?> >Pracownicy</button>
+        
     </form>
 
         
@@ -49,6 +51,9 @@
             break;
         case "rezerwacje":
             rezerwacja();
+            break;
+        case "pracownicy":
+            wykaz("pracownicy");
             break;
         default:
             break;

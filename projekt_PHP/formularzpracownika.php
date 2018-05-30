@@ -172,33 +172,34 @@ require_once ('polaczenie.php');
                             $zapytanie=$baza->prepare($sql);
                             $zapytanie->execute(array($_POST["edytujklienci"]));
                             $rzad=$zapytanie->fetch();
+                            $_SESSION['haslo']=$rzad[7];
                             ?>
 
                 <form action="formularzpracownika.php" method="POST">
                     <p>
-                        Imię: <input type="text" name="imie" value="<?php echo $rzad[1] ?>" placeholder="Imię" require />
+                        Imię: <input type="text" name="imie" value="<?php echo $rzad[1] ?>" placeholder="Imię" required />
                     </p>
 
                     <p>
-                        Nazwisko: <input type="text" name="nazwisko"  value="<?php echo $rzad[2] ?>"  placeholder="Nazwisko" require />
+                        Nazwisko: <input type="text" name="nazwisko"  value="<?php echo $rzad[2] ?>"  placeholder="Nazwisko" required />
                     </p>
 
                     <p>
-                        PESEL bądź dowód<input type="text" name="pesel" value="<?php echo $rzad[3] ?>"  placeholder="Pesel lub nr dowodu osobistego" require />
+                        PESEL bądź dowód<input type="text" name="pesel" value="<?php echo $rzad[3] ?>"  placeholder="Pesel lub nr dowodu osobistego" required />
                     </p>
 
                     <p>
-                        E-mail:<input type="email" name="mail" value="<?php echo $rzad[4] ?>" placeholder="E-mail" require/>
+                        E-mail:<input type="email" name="mail" value="<?php echo $rzad[4] ?>" placeholder="E-mail" required/>
                     </p>
                     <p>
-                        Telefon<input type="tel" name="telefon"  value="<?php echo $rzad[5] ?>"  placeholder="Telefon" require/>
+                        Telefon<input type="tel" name="telefon"  value="<?php echo $rzad[5] ?>"  placeholder="Telefon" required/>
                     </p>
                     <hr/>
                     <p>
-                        Login <input type="login" name="login"  value="<?php echo $rzad[6] ?>"  placeholder="Login" require/>
+                        Login <input type="login" name="login"  value="<?php echo $rzad[6] ?>"  placeholder="Login" required/>
                     </p>
                     <p>
-                        Hasło :<input type="password" name="haslo" value="<?php echo $rzad[7] ?>" placeholder="Hasło" require/>
+                        Hasło :<input type="password" name="haslo" value="<?php echo $rzad[7] ?>" placeholder="Hasło" required/>
                     </p>
 
                     <p>
@@ -206,6 +207,63 @@ require_once ('polaczenie.php');
                                 <input type="hidden" name="id" value="<?php echo $_POST["edytujklienci"]; ?>"/>
                                 <input type="submit" value="Zatwierdź" />
                                 <button><a href="http://localhost/projekt_PHP/pracownik2.php">Powrót</a></button>
+                            </p>
+
+                    </form>
+                </fieldset>
+                <?php } ?>
+            </div>
+
+            <div id="edytujpracownika">
+                <?php if(isset($_POST["edytujpracownicy"])){
+                            $sql="SELECT * FROM pracownicy where id_pracownika=?";
+                            $zapytanie=$baza->prepare($sql);
+                            $zapytanie->execute(array($_POST["edytujpracownicy"]));
+                            $rzad=$zapytanie->fetch();
+                            $_SESSION['haslo']=$rzad[8];
+                            ?>
+                        
+                <form action="formularzpracownika.php" method="POST">
+                    <p>
+                        Imię: <input type="text" name="imie" value="<?php echo $rzad[1] ?>" placeholder="Imię" required />
+                    </p>
+
+                    <p>
+                        Nazwisko: <input type="text" name="nazwisko"  value="<?php echo $rzad[2] ?>"  placeholder="Nazwisko" required />
+                    </p>
+
+                    <p>
+                        PESEL bądź dowód<input type="text" name="pesel" value="<?php echo $rzad[3] ?>"  placeholder="Pesel lub nr dowodu osobistego"  />
+                    </p>
+
+                    <p>
+                        E-mail:<input type="email" name="mail" value="<?php echo $rzad[4] ?>" placeholder="E-mail"/>
+                    </p>
+                    <p>
+                        Telefon<input type="tel" name="telefon"  value="<?php echo $rzad[5] ?>"  placeholder="Telefon"/>
+                    </p>
+                    <p>Adres zamieszkania:
+                                <input type="text" name="adres" placeholder="adres" value="<?php echo $rzad[6] ?>" required />
+                    </p>
+                    <hr/>
+                    <p>
+                        Login <input type="login" name="login"  value="<?php echo $rzad[7] ?>"  placeholder="Login" required/>
+                    </p>
+                    <p>
+                        Hasło :<input type="password" name="haslo" value="<?php echo $rzad[8] ?>" placeholder="Hasło" required/>
+                    </p>
+                    <p>Uprawnienia:<select name="upr">
+                                
+                                <option value="0">Zwykły pracownik</option>
+                                <option value="1" <?php if($rzad[9]==1) echo "selected"; ?>>Super pracownik</option>
+                                    </select>
+                            </p>
+
+                    <p>
+                                <input type="hidden" name="modyf" value="pracownicy"/>
+                                <input type="hidden" name="id" value="<?php echo $_POST["edytujpracownicy"]; ?>"/>
+                                <input type="submit" value="Zatwierdź" />
+                                <button><a href=".\pracownik2.php?co=pracownicy">Powrót</a></button>
                             </p>
 
                     </form>

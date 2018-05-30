@@ -2,6 +2,7 @@
 session_start();
 include ('kontrolaupr.php');
 
+
 kontrolaDostepu();
 
 
@@ -11,7 +12,7 @@ if(isset($_POST['usunrozkl'])){
     $usun=$baza->prepare($sql);
     $usun->bindValue(":id",$_POST['usunrozkl']);
     $usun->execute();
-    header('Location: http://localhost/projekt_PHP/pracownik2.php?co=rozklady');
+    header('Location: .\pracownik2.php?co=rozklady');
     exit;
 
 }
@@ -21,7 +22,7 @@ else if(isset($_POST['usunsamolot'])){
     $usun=$baza->prepare($sql);
     $usun->bindValue(":id",$_POST['usunsamolot']);
     $usun->execute();
-    header('Location: http://localhost/projekt_PHP/pracownik2.php?co=samolot');
+    header('Location:.\pracownik2.php?co=samolot');
     exit;
 }
 else if(isset($_POST['usunrez'])){
@@ -43,7 +44,7 @@ else if(isset($_POST['usunrez'])){
     $zapytanie2->bindValue(':rozkl',$_POST['usunid'],PDO::PARAM_INT);
     $zapytanie2->execute();
 
-    header('Location: http://localhost/projekt_PHP/pracownik2.php?co=rezerwacje');
+    header('Location: .\pracownik2.php?co=rezerwacje');
     exit;
 }
 else if(isset($_POST['usuntrasa'])){
@@ -52,7 +53,7 @@ else if(isset($_POST['usuntrasa'])){
     $usun=$baza->prepare($sql);
     $usun->bindValue(":id",$_POST['usuntrasa']);
     $usun->execute();
-    header('Location: http://localhost/projekt_PHP/pracownik2.php?co=trasa');
+    header('Location: .\pracownik2.php?co=trasa');
     exit;
 }
 else if(isset($_POST['usunklienci'])){
@@ -61,7 +62,17 @@ else if(isset($_POST['usunklienci'])){
     $usun=$baza->prepare($sql);
     $usun->bindValue(":id",$_POST['usunklienci']);
     $usun->execute();
-    header('Location: http://localhost/projekt_PHP/pracownik2.php?co=klienci');
+    header('Location: .\pracownik2.php?co=klienci');
+    exit;
+}
+
+else if(isset($_POST['usunpracownicy'])){
+    include ('polaczenie.php');
+    $sql="DELETE FROM klienci WHERE id_pracownika=:id";
+    $usun=$baza->prepare($sql);
+    $usun->bindValue(":id",$_POST['usunpracownicy']);
+    $usun->execute();
+    header('Location: .\pracownik2.php?co=klienci');
     exit;
 }
 
@@ -83,28 +94,39 @@ else if(isset($_POST['usunklienci'])){
             while($dane=$wykonaj2->fetch()){
                 echo "<tr>";
                 for($i=0;$i<$ilosc;$i++){
-                    if($i!=7)
-                        echo "<td>{$dane[$i]}</td>";
-                    else{
+                    if(($i==7 && $zmienna=="klienci") || ($i==8 && $zmienna=="pracownicy")){
                         echo "<td>";
                         for($y=0;$y<strlen($dane[$i]);$y++)
                             echo "*";
-                    echo "</td>";
-                    }
+                        echo "</td>";
+                    }  
+                    else if($i==9 && $zmienna=="pracownicy"){    
+                        echo "<td>";
+                        if($dane[$i]==1)
+                            echo "Super praconwik";
+                        else
+                            echo "Zwykły pracownik";
+                        echo "</td>";
+                    }                
+                    else
+                        echo "<td>{$dane[$i]}</td>";
+                    
 
                 }
                    
                 echo "<td><form action='formularzpracownika.php' method='post'>
-                        <input type='hidden' name='edytuj{$zmienna}' value='{$dane['0']}'/>
+                        <input type='hidden' name='edytuj{$zmienna}' value='{$dane[0]}'/>
                         <button type='submit' id='edytuj' /></button></form>
                         <form action='pracownik2.php' method='post'>";
-                        if(isset($_SESSION['uprawnienia'])){
-                        echo "<input type='hidden' name='usun{$zmienna}' value='{$dane['0']}'/>
-                        <button type='submit' id='usun' /></button></form></td>";
+                        if(isset($_SESSION['uprawnienia']) && ($_SESSION["log"])!=$dane[0]){
+                        echo "<input type='hidden' name='usun{$zmienna}' value='{$dane[0]}'/>
+                            <button type='submit' id='usun' /></button></form></td>";
+                           
                         }
                 echo "</tr>";
             }    
         echo "</table>";
+       
     }
 
     function rozklad(){
