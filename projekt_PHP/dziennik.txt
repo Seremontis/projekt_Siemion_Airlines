@@ -1,1 +1,7 @@
-﻿
+Login: 1;typ konta:Pracownik;tpołączenie udane;13-06-2018 21:08:05;::1;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36;
+Login: 2;typ konta:Pracownik;tpołączenie udane;13-06-2018 21:18:02;::1;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36;
+Login: 1;typ konta:Pracownik;tpołączenie udane;13-06-2018 21:18:15;::1;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36;
+Login: 2;typ konta:Pracownik;tpołączenie udane;13-06-2018 21:20:17;::1;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36;
+Login: Admin;typ konta:---;tpołączenie nieudane;13-06-2018 21:33:26;::1;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36;
+Login: Admin;typ konta:---;tpołączenie nieudane;13-06-2018 21:33:32;::1;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36;
+Login: 1;typ konta:Pracownik;tpołączenie udane;13-06-2018 21:34:23;::1;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36;

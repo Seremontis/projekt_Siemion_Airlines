@@ -1,4 +1,5 @@
 <?php
+session_start();
 require('uzytkownikp.php');
 
 ?>
@@ -96,7 +97,7 @@ if(empty($_GET['skad'])==false && empty($_GET['dokad'])==false){
         
         $spr="SELECT * FROM rezerwacje WHERE id_klienta=? AND id_rozklad=?"; 
         $wykonaj3=$baza->prepare($spr);
-        $wykonaj3->execute(array($_SESSION['login'],$id_roz));
+        $wykonaj3->execute(array($_SESSION['log'],$id_roz));
         $ilosc=$wykonaj3->rowCount();
         echo "<td>";
         if($ilosc==0 && $dane[4]>0){
@@ -129,5 +130,3 @@ if(empty($_GET['skad'])==false && empty($_GET['dokad'])==false){
 </body>
 
 </html>
-
-<?php

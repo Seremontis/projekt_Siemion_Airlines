@@ -3,6 +3,7 @@ pdf();
 
 function pdf(){
 require_once('.\fpdf\fpdf.php');
+//require_once('.\mod_pdf.php');
 include ('polaczenie.php');
 $pdf=new FPDF();
 $pdf->AddPage();

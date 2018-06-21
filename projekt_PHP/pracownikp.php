@@ -22,7 +22,7 @@ if($operacja=="samolot"){
     $zapytanie->execute(array($_POST["model"],$_POST["marka"],$_POST["nr_taborowy"],$_POST["miejsca"]));
 
     if($zapytanie->rowCount()>0)
-        echo "<script>alert('Wykonano pomyślnie');</script>";  
+        echo "<script>alert('Wykonano pomyślnie');window.location.reload(true);</script>";  
     else
         echo "<script>alert('Niepowodzenie');</script>"; 
     }
@@ -41,7 +41,7 @@ else if($operacja=="trasa"){
     $zapytanie->execute(array($_POST["start"],$_POST["meta"],$_POST["pojemnosc"]));
 
     if($zapytanie->rowCount()>0)
-        echo "<script>alert('Wykonano pomyślnie');</script>";  
+        echo "<script>alert('Wykonano pomyślnie');window.location.reload(true);</script>";  
     else
         echo "<script>alert('Niepowodzenie');</script>";  
         $operacja='';
@@ -89,8 +89,6 @@ else if($operacja=="rozklad"){
     $ilosc=$zapytanie->rowCount();
     
     if($ilosc==1){
-        // header('Location: pracownik.php');
-        //$_SESSION['udane']=1;
         echo "<script>alert('Zakończono powodzeniem');</script>";
     
     

@@ -1,16 +1,20 @@
 <?php
-require('kontrolaupr.php');
 
-session_start();
-kontrolaDostepu();
+class Formularz{
 
-if(isset($_POST['modyf']))
-    wykonaj($_POST['modyf']);
+    function __construct(){
+        require('kontrolaupr.php');
+        kontrolaDostepu();
+        $this->wykonaj($_POST['modyf']);
+    }
 
+    function __dectruct(){
+        unset($_POST['modyf']);
+    }
 
 
 function wykonaj($zmienna){
-  require_once ('polaczenie.php');
+  require ('polaczenie.php');
 switch($zmienna){
     case "samolot":
     $sql="UPDATE samolot SET model=?, marka=?, nr_taborowy=?,ilosc_miejsc=? WHERE id_samolotu=?";
@@ -74,7 +78,7 @@ switch($zmienna){
     break;
 
     case "klienci":  
-    if(sha1($_POST['haslo'])!=$_SESSION['haslo'])
+    if((sha1($_POST['haslo']))!=$_SESSION['haslo'])
         $haslo=sha1($_POST['haslo']);
     else
         $haslo=$_SESSION['haslo'];
@@ -103,7 +107,7 @@ switch($zmienna){
     break;
 
     case "pracownicy":  
-    if(sha1($_POST['haslo'])!=$_SESSION['haslo'])
+    if((sha1($_POST['haslo']))!=$_SESSION['haslo'])
         $haslo=sha1($_POST['haslo']);
     else
         $haslo=$_SESSION['haslo'];
@@ -135,6 +139,7 @@ switch($zmienna){
 
     default:
         break;
+}
 }
 }
 ?>

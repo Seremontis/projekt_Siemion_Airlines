@@ -25,7 +25,7 @@ $zapytanie->execute(array($_POST["imie"],$_POST['nazwisko'],$_POST['pesel'],$_PO
 $ilosc=$zapytanie->rowCount();
 
 if($ilosc==1){
-    //echo "<script>alert('Rejestracja zakończona pozytywnie <br/> Teraz możesz się zalogować');</script>";
+    $_SESSION['rej']='Rejestracja zakończona pomyślnie,można się zalogować';
     header('Location: zaloguj.php');
     exit;
 

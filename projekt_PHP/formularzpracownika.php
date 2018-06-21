@@ -1,6 +1,11 @@
 <?php
+session_start();
 require ('formularzpracownikap.php');
 require_once ('polaczenie.php');
+
+if(isset($_POST['modyf'])){       
+        $klasa=new Formularz();     
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -250,7 +255,7 @@ require_once ('polaczenie.php');
                         Login <input type="login" name="login"  value="<?php echo $rzad[7] ?>"  placeholder="Login" required/>
                     </p>
                     <p>
-                        Hasło :<input type="password" name="haslo" value="<?php echo $rzad[8] ?>" placeholder="Hasło" required/>
+                        Hasło :<input type="password" name="haslo" value="<?php echo $rzad[8]; $_SESSION['haslo']=$rzad[8]; ?>" placeholder="Hasło" required/>
                     </p>
                     <p>Uprawnienia:<select name="upr">
                                 

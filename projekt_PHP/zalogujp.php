@@ -1,8 +1,12 @@
 <?php
-session_start();
-kontrolaDostepu();
+
+class Zaloguj{
+    
+function __construct(){
+$this->kontrolaDostepu();
 if((isset($_POST['login'])) && (isset($_POST['haslo'])))
-    logowanie();
+    $this->logowanie();
+}
 
 function zapisz($login,$kto,$dane){
     $plik='./dziennik.txt';
@@ -29,7 +33,7 @@ if(isset($_SESSION["zalogowany"]) && isset($_SESSION["log"])){
 }
 
 function logowanie(){
-    include ('./polaczenie.php');
+include ('./polaczenie.php');
 $ilosc;
 $haslo = sha1($_POST["haslo"]);
 if(isset($_POST["kto"])=="Pracownik"){
@@ -53,14 +57,14 @@ if($ilosc==1){
         $_SESSION["log"]=$dane[0];
         if($dane[3]!=0)
             $_SESSION["uprawnienia"]=$dane[3];
-        zapisz( $_SESSION["log"], $_SESSION["zalogowany"],"");
+        $this->zapisz( $_SESSION["log"], $_SESSION["zalogowany"],"");
         header('Location: pracownik.php');
         exit;
     }
     else{     
         $_SESSION["zalogowany"]="Klient";
         $_SESSION["log"]=$dane['id_klienta'];
-        zapisz( $_SESSION["log"], $_SESSION["zalogowany"],"");
+        $this->zapisz( $_SESSION["log"], $_SESSION["zalogowany"],"");
         header('Location: uzytkownik.php');
         exit; 
     }
@@ -68,12 +72,12 @@ if($ilosc==1){
 else{
     $_SESSION['nick']=$_POST['login'];
     $_SESSION['blad']="błędny login bądź hasło";
-    zapisz( $_SESSION["nick"], "---","nie");
+    $this->zapisz( $_SESSION["nick"], "---","nie");
     if(isset($_POST['kto']))
         $_SESSION['check']="checked";
 }
 }
-
+}
 
 
 ?>

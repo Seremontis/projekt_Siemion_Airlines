@@ -1,6 +1,5 @@
 <?php
 include ('polaczenie.php');
-session_start();
 kontrolaDostepu();
 
 
@@ -17,7 +16,7 @@ if(isset($_SESSION["zalogowany"])==false || $_SESSION["zalogowany"]!="Klient"){
 if(isset($_GET['dodaj'])){
     $sql="INSERT INTO rezerwacje(id_klienta,id_rozklad) VALUES (:klient,:rozkl)";
     $zapytanie=$baza->prepare($sql);
-    $zapytanie->bindValue(':klient',$_SESSION['login'],PDO::PARAM_INT);
+    $zapytanie->bindValue(':klient',$_SESSION['log'],PDO::PARAM_INT);
     $zapytanie->bindValue(':rozkl',$_GET['dodaj'],PDO::PARAM_INT);
     $zapytanie->execute();
 
@@ -44,7 +43,7 @@ if(isset($_GET['dodaj'])){
 if(isset($_GET['usun'])){
     $sql="DELETE FROM rezerwacje WHERE id_klienta=:klient AND id_rozklad=:rozkl";
     $zapytanie=$baza->prepare($sql);
-    $zapytanie->bindValue(':klient',$_SESSION['login'],PDO::PARAM_INT);
+    $zapytanie->bindValue(':klient',$_SESSION['log'],PDO::PARAM_INT);
     $zapytanie->bindValue(':rozkl',$_GET['usun'],PDO::PARAM_INT);
     $zapytanie->execute();
     

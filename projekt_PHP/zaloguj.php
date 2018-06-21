@@ -1,5 +1,13 @@
 <?php
+session_start();
 require('zalogujp.php');
+
+if(isset($_SESSION['rej'])){
+    echo '<script>alert("'.$_SESSION['rej'].'");</script>';
+    unset($_SESSION['rej']);
+}
+if(isset($_POST['log'])==1)
+    $klasa=new Zaloguj();
 
 ?>
 
@@ -37,6 +45,7 @@ require('zalogujp.php');
                         <label><input type="checkbox" name="kto" value="Pracownik" style="width:20px;" <?php if(isset($_SESSION["check"])){ echo "checked"; unset ($_SESSION["check"]);}?>>Jestem pracownikiem</input></label>
                     </p>
                     <p>
+                        <input type="hidden" name="log" value="1"/>
                         <input type="submit" id="zatwierdz" value="Zaloguj" />
                     </p>
                     <p id="zle" style="margin-top:10px;">

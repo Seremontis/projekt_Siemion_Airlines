@@ -3,7 +3,7 @@ require_once('zarejestrujp.php');
 session_start();
 
 if((isset($_POST['imie'])) && (isset($_POST['nazwisko'])) && (isset($_POST['pesel'])) && (isset($_POST['telefon'])) && (isset($_POST['login'])) && (isset($_POST['haslo']))){
-    $klasa=new Rejestracja;
+    $klasa=new Rejestracja();
     $klasa->rejestruj();
 }
 ?>

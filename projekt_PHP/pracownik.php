@@ -3,6 +3,7 @@ require('pracownikp.php');
 wykonaj();
 kontrolaDostepu();
 dodajDoBazy();
+
 function wykonaj(){
 require_once('polaczenie.php');
 ?>

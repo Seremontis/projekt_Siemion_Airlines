@@ -68,11 +68,11 @@ else if(isset($_POST['usunklienci'])){
 
 else if(isset($_POST['usunpracownicy'])){
     include ('polaczenie.php');
-    $sql="DELETE FROM klienci WHERE id_pracownika=:id";
+    $sql="DELETE FROM pracownicy WHERE id_pracownika=:id";
     $usun=$baza->prepare($sql);
     $usun->bindValue(":id",$_POST['usunpracownicy']);
     $usun->execute();
-    header('Location: .\pracownik2.php?co=klienci');
+    header('Location: .\pracownik2.php?co=pracownicy');
     exit;
 }
 
@@ -131,7 +131,7 @@ else if(isset($_POST['usunpracownicy'])){
 
     function rozklad(){
         include('polaczenie.php');
-        echo "<p id='opcja'><a id='generuj' href='generuj.php'>Generuj plik pdf i rdf</a></p>";
+        echo "<p id='opcja'><a id='generuj' href='generuj.php'>Generuj plik pdf</a></p>";
         echo "<table>";
         echo "<tr>";
         echo "<th>id_rozkladu</th><th>Data</th><th>godzina</th><th>Skad</th><th>dokad</th><th>id_samolotu</th><th>marka samolotu</th> <th>model samolotu</th><th>ilosc rezerwacji</th><th style='width:90px;'>Modyfikacje</th>";
