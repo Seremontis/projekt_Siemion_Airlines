@@ -10,6 +10,5 @@
   
   <hr />
   <ul> Przypuszczalne blędy/niedoskonałości:
-  <li> możliwe długie ładowanie strony przy dużej ilości danych na stronie pracownika zwiazane z tym że wszystko co potrzebne ściąga odrazu</li>
   <li>brak responsywności na chwilę obecną</li>
   <li>...</li>
