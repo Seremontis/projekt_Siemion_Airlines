@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-
+/*zmodyfikować id na class */
 ?>
 <html>
 <head>
@@ -15,18 +15,16 @@ session_start();
 </head>
 
 <body>
-<div id="logo">   
-    <a href="zarejestruj.php"><div id="zarejestruj">Zarejestruj się</div></a>
-    <a href="zaloguj.php"><div id="zaloguj">Zaloguj się</div></a>
-    <div style="clear:both;"></div>
-    <div id="tytul">
-    <div class="test"><h1 class="anim">Siemion Airlines</h1></div>
-    <div class="test"><img id="samolot" src=".\img\airplane-shape.png"/></div> </div><div style="clear:both;"></div>
+<div class="logo">   
+    <a href="zarejestruj.php"><div class="zarejestruj">Zarejestruj się</div></a>
+    <a href="zaloguj.php"><div class="zaloguj">Zaloguj się</div></a>
+    <h1 class="anim">Siemion Airlines</h1>
+    <img class="samolot" src=".\img\airplane-shape.png"/>
     </div>
     <div class="log"> </div> 
-<div id="tresc">Siemion Airlines to linie lotniczne dla wszystkich.Świadczymy najwyższej jakości usługi oraz wciąż się rozwijamy, aby nie zostać w tyle.</div>
+<div class="tresc"><p>Siemion Airlines to linie lotniczne dla wszystkich. Świadczymy najwyższej jakości usługi oraz wciąż się rozwijamy, aby nie zostać w tyle.</p></div>
 <div class="log"> </div>
-<div id="stopka">&copy; Strona przeznaczona do projektu na przedmiot <span>Programowanie aplikacji internetowych</span></div>
+<div class="stopka">&copy; Strona przeznaczona do projektu na przedmiot <span>Programowanie aplikacji internetowych</span></div>
 
 
 
