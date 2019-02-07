@@ -13,5 +13,5 @@
   <s><li>brak responsywności na chwilę obecną</li></s>
   <li> Przy innej okazji poprawić obiektowość </li>
   <li>...</li>
-
+  </ul>
 W pliku "proszę przeczytaj.txt" znajdują się wskazówki co do pierwszego logowania pracownika
