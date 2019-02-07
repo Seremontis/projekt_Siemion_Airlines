@@ -10,5 +10,8 @@
   
   <hr />
   <ul> Przypuszczalne blędy/niedoskonałości:
-  <li>brak responsywności na chwilę obecną</li>
+  <s><li>brak responsywności na chwilę obecną</li></s>
+  <li> Przy innej okazji poprawić obiektowość </li>
   <li>...</li>
+
+W pliku "proszę przeczytaj.txt" znajdują się wskazówki co do pierwszego logowania pracownika
