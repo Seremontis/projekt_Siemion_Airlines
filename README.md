@@ -5,7 +5,7 @@
 <ul>Co jeszcze można zrobić:
   <li>posprawdzać poprawność danych</li>
   <li>poprawić kontrolę danych przy tworzeniu danych przez pracownika</li>
-  <s><li>(opcjonalne) usuwanie konta pracownika</li><s>
+  <s><li>(opcjonalne) usuwanie konta pracownika</li></s>
   </ul>
   
   <hr />
