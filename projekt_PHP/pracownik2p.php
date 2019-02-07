@@ -85,9 +85,13 @@ else if(isset($_POST['usunpracownicy'])){
         $wykonaj=$baza->prepare($kolumny);
         $wykonaj->execute();
         $ilosc=$wykonaj->rowCount();
-            while($dane=$wykonaj->fetch())
-                echo "<th>{$dane[0]}</th>";
-            echo "<th style='width:90px;'>Modyfikacje</th>";
+            while($dane=$wykonaj->fetch()){
+                if($dane[0]=='id_pracownika' || $dane[0]=='id_klienta')
+                    echo "<th>ID</th>";                
+                else
+                    echo "<th>{$dane[0]}</th>";
+            }                
+            echo "<th>Modyfikacje</th>";
             echo "</tr>";
             $rekordy="select * FROM {$zmienna}";
             $wykonaj2=$baza->query($rekordy);
@@ -95,8 +99,14 @@ else if(isset($_POST['usunpracownicy'])){
                 echo "<tr>";
                 for($i=0;$i<$ilosc;$i++){
                     if(($i==7 && $zmienna=="klienci") || ($i==8 && $zmienna=="pracownicy")){
-                        echo "<td>";
+                        echo "<td class='no-mobile'>";
                         for($y=0;$y<strlen($dane[$i]);$y++)
+                            echo "*";
+                        echo "</td>";
+
+
+                        echo "<td class='mobile'>";
+                        for($y=0;$y<5;$y++)
                             echo "*";
                         echo "</td>";
                     }  
@@ -114,14 +124,17 @@ else if(isset($_POST['usunpracownicy'])){
 
                 }
                    
-                echo "<td><form action='formularzpracownika.php' method='post'>
-                        <input type='hidden' name='edytuj{$zmienna}' value='{$dane[0]}'/>
-                        <button type='submit' id='edytuj' /></button></form>
+                echo "<td class='modify'>
+                        <form action='formularzpracownika.php' method='post'>
+                            <input type='hidden' name='edytuj{$zmienna}' value='{$dane[0]}'/>
+                            <button type='submit' id='edytuj' /></button>
+                        </form>
                         <form action='pracownik2.php' method='post'>";
                         if(isset($_SESSION['uprawnienia']) && ($_SESSION["log"])!=$dane[0]){
                         echo "<input type='hidden' name='usun{$zmienna}' value='{$dane[0]}'/>
-                            <button type='submit' id='usun' /></button></form></td>";
-                           
+                            <button type='submit' id='usun' /></button>
+                            </form>
+                       </td>";                          
                         }
                 echo "</tr>";
             }    
@@ -131,7 +144,7 @@ else if(isset($_POST['usunpracownicy'])){
 
     function rozklad(){
         include('polaczenie.php');
-        echo "<p id='opcja'><a id='generuj' href='generuj.php'>Generuj plik pdf</a></p>";
+        echo "<div class='opcja'><a class='generuj' href='generuj.php'>Generuj plik pdf</a></div>";
         echo "<table>";
         echo "<tr>";
         echo "<th>id_rozkladu</th><th>Data</th><th>godzina</th><th>Skad</th><th>dokad</th><th>id_samolotu</th><th>marka samolotu</th> <th>model samolotu</th><th>ilosc rezerwacji</th><th style='width:90px;'>Modyfikacje</th>";

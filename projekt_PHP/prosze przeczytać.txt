@@ -1,8 +1,8 @@
-Pierwszym plikiem jest index1.php.
-W momencie zaimportowania bazy, poza tabel¹ pracownicy wszystkie s¹ puste.
-W celu zalogowania siê jako pracownik za pomoc¹ przygotowanej przez nas strony(nie mysql) proszê wpisaæ nastêpuj¹ce dane:
+ï»¿Pierwszym plikiem jest index1.php.
+W momencie zaimportowania bazy(nazwa bazy: siemionairlines), poza tabelÄ™ pracownicy wszystkie sÄ… puste.
+W celu zalogowania siÄ™ jako pracownik za pomocÄ… przygotowanej przez nas strony(nie mysql) proszÄ™ wpisaÄ‡ nastÄ™pujÄ…ce dane:
 Login:Admin
-Has³o:admin
-oraz zaznaczyæ checkboxa
-Po zalogowaniu siê mo¿na dodawaæ nowych pracowników.
-Jeœli chcesz siê zalogowaæ jako zwyk³y u¿ytkownik musisz siê wczeœniej za pomoc¹ formularz zarejestrowaæ.
+HasÅ‚o:admin
+oraz zaznaczyÄ‡ checkboxa
+Po zalogowaniu siÄ™ moÅ¼na dodawaÄ‡ nowych pracownikÃ³w.
+JeÅ›li chcesz siÄ™ zalogowaÄ‡ jako zwykÅ‚y uÅ¼ytkownik musisz siÄ™ wczeÅ›niej za pomocÄ… formularza zarejestrowaÄ‡.

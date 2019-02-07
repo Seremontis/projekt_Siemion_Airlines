@@ -5,3 +5,10 @@ Login: 2;typ konta:Pracownik;tpołączenie udane;13-06-2018 21:20:17;::1;Mozilla
 Login: Admin;typ konta:---;tpołączenie nieudane;13-06-2018 21:33:26;::1;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36;
 Login: Admin;typ konta:---;tpołączenie nieudane;13-06-2018 21:33:32;::1;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36;
 Login: 1;typ konta:Pracownik;tpołączenie udane;13-06-2018 21:34:23;::1;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36;
+Login: Admin;typ konta:---;tpołączenie nieudane;07-02-2019 12:42:47;::1;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.96 Safari/537.36;
+Login: 1;typ konta:Pracownik;tpołączenie udane;07-02-2019 12:42:52;::1;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.96 Safari/537.36;
+Login: 1;typ konta:Klient;tpołączenie udane;07-02-2019 13:44:36;::1;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.96 Safari/537.36;
+Login: 1;typ konta:Klient;tpołączenie udane;07-02-2019 14:04:31;::1;Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.96 Mobile Safari/537.36;
+Login: 1;typ konta:Pracownik;tpołączenie udane;07-02-2019 16:33:48;::1;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.96 Safari/537.36;
+Login: 1;typ konta:Pracownik;tpołączenie udane;07-02-2019 17:36:22;::1;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.96 Safari/537.36;
+Login: 1;typ konta:Pracownik;tpołączenie udane;07-02-2019 17:49:48;::1;Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.96 Mobile Safari/537.36;

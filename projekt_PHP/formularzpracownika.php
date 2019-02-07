@@ -37,7 +37,7 @@ if(isset($_POST['modyf'])){
     </script>
 </head>
 <body>
-    <div id="kontener">
+    <div class="kontener">
         
         
                 <div id="edytujsamolot">
@@ -67,10 +67,13 @@ if(isset($_POST['modyf'])){
                                 <input type="hidden" name="modyf" value="samolot"/>
                                 <input type="hidden" name="id" value="<?php echo $rzad[0];?>"/>
                                 <input type="submit" value="Zatwierdź" />
-                                <button><a href="http://localhost/projekt_PHP/pracownik2.php">Powrót</a></button>
+                            </p>
+                            </form>
+                            <p>
+                                <button><a href=".\pracownik2.php?co=samolot">Powrót</a></button>
                             </p>
                         </fieldset>
-                </form>
+                
                     <?php } ?>
                     </div>
                  
@@ -98,10 +101,13 @@ if(isset($_POST['modyf'])){
                                 <input type="hidden" name="modyf" value="trasa"/>
                                 <input type="hidden" name="id" value="<?php echo $rzad[0];?>"/>
                                 <input type="submit" value="Zatwierdź" />
-                                <button><a href="http://localhost/projekt_PHP/pracownik2.php">Powrót</a></button>
+                            </p>
+                            </form>
+                            <p>
+                                <button><a href=".\pracownik2.php?co=trasa">Powrót</a></button>
                             </p>
                         </fieldset>
-                    </form>
+                    
                  <?php } ?>
             </div>
 
@@ -164,10 +170,12 @@ if(isset($_POST['modyf'])){
                                 <input type="hidden" name="modyf" value="rozklad"/>
                                 <input type="hidden" name="id" value="<?php echo $_POST["edytujroz"]; ?>" />
                                 <input type="submit" value="Zatwierdź" />
-                                <button><a href="http://localhost/projekt_PHP/pracownik2.php">Powrót</a></button>
+                            </p>
+                            </form>
+                            <p>
+                                <button><a href=".\pracownik2.php?co=rozklady">Powrót</a></button>
                             </p>
                         </fieldset>
-                    </form>
                                     <?php } ?>
                 </div>
 
@@ -211,10 +219,13 @@ if(isset($_POST['modyf'])){
                                 <input type="hidden" name="modyf" value="klienci"/>
                                 <input type="hidden" name="id" value="<?php echo $_POST["edytujklienci"]; ?>"/>
                                 <input type="submit" value="Zatwierdź" />
-                                <button><a href="http://localhost/projekt_PHP/pracownik2.php">Powrót</a></button>
+                    </p>
+                    </form>
+                            <p>
+                                <button><a href=".\pracownik2.php?co=klienci">Powrót</a></button>
                             </p>
 
-                    </form>
+                    
                 </fieldset>
                 <?php } ?>
             </div>
@@ -268,10 +279,13 @@ if(isset($_POST['modyf'])){
                                 <input type="hidden" name="modyf" value="pracownicy"/>
                                 <input type="hidden" name="id" value="<?php echo $_POST["edytujpracownicy"]; ?>"/>
                                 <input type="submit" value="Zatwierdź" />
+                                </p>
+                    </form>
+                            <p>
                                 <button><a href=".\pracownik2.php?co=pracownicy">Powrót</a></button>
                             </p>
 
-                    </form>
+                    
                 </fieldset>
                 <?php } ?>
             </div>

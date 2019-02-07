@@ -23,8 +23,8 @@ if((isset($_POST['imie'])) && (isset($_POST['nazwisko'])) && (isset($_POST['pese
 </head>
 
 <body>
-    <div id="kontener">
-        <div id="rejestracja">
+    <div class="kontener">
+        <main>
 
             <fieldset>
                 <center><legend>Rejestracja</legend></center>
@@ -64,16 +64,16 @@ if((isset($_POST['imie'])) && (isset($_POST['nazwisko'])) && (isset($_POST['pese
                     </p>
 
                     <p>
-                        <input type="submit" id="zatwierdz" value="Zarejestruj" />
+                        <input type="submit" class="zatwierdz" value="Zarejestruj" />
                     </p>
                 </form>
             </fieldset>
-            <div id="odsylacz">
+            <div class="odsylacz">
                 <p>Jeśli masz już konto to
-                <a href="zaloguj.php">zaloguj się</a></p>
+                <p><a href="zaloguj.php">zaloguj się</a></p>
                 <p>Jeśli jesteś pracownikiem i nie masz jeszcze konta skontaktuj się z administratorem</p>
             </div>
-        </div>
+        </main>
     </div>
 
 </body>

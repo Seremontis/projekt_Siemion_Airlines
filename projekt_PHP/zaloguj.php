@@ -28,8 +28,8 @@ if(isset($_POST['log'])==1)
 
 <body>
 
-    <div id="kontener">
-        <div id="logowanie">
+    <div class="kontener">
+        <main>
 
             <fieldset>
                 <legend>Logowanie</legend>
@@ -46,7 +46,7 @@ if(isset($_POST['log'])==1)
                     </p>
                     <p>
                         <input type="hidden" name="log" value="1"/>
-                        <input type="submit" id="zatwierdz" value="Zaloguj" />
+                        <input type="submit" class="zatwierdz" value="Zaloguj" />
                     </p>
                     <p id="zle" style="margin-top:10px;">
                     <?php
@@ -59,12 +59,12 @@ if(isset($_POST['log'])==1)
                     </p>
                 </form>
             </fieldset>
-            <div id="odsylacz">
-                <div id="powrot"><a href="index1.php">Powrót</a></div>
+            <div class="odsylacz">
+                <div class="powrot"><a href="index1.php">Powrót</a></div>
                 <div style="cler:both;"></div>
-                <div id="rejestracja"><a href="zarejestruj.php">Rejestracja</a></div>
+                <div class="rejestracja"><a href="zarejestruj.php">Rejestracja</a></div>
             </div>
-        </div>
+</main>
     </div>
 
 </body>

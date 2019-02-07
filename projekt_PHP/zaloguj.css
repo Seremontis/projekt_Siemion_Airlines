@@ -7,14 +7,14 @@ body {
   overflow: hidden;
 }
 
-#kontener {
+.kontener {
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#logowanie {
+main {
   background-color: #e974469f;
   background-color: rgba(161, 109, 40, 0.507);
   width: 250px;
@@ -46,7 +46,7 @@ input:hover {
   background-color: rgba(85, 211, 27, 0.452);
 }
 
-#zatwierdz {
+.zatwierdz {
   background-color: rgba(0, 128, 0, 0.65);
   height: 50px;
   font-family: fantasy;
@@ -54,7 +54,7 @@ input:hover {
   color: rgb(15, 14, 14);
 }
 
-#zatwierdz:hover {
+.zatwierdz:hover {
   background-color: greenyellow;
 }
 
@@ -62,20 +62,20 @@ fieldset {
   border: none;
 }
 
-#odsylacz {
+.odsylacz {
   margin-bottom: 2px;
   margin-right: 20px;
   margin-left: 20px;
 }
 
-#odsylacz>#powrot{
+.odsylacz>.powrot{
   float:left;
   width: auto;
   background-color: rgb(29, 145, 39);
   padding: 8px;
   border-radius: 10px;
 }
-#odsylacz>#rejestracja{
+.odsylacz>.rejestracja{
   float: right;
   width: auto;
   background-color: rgb(29, 145, 39);
@@ -83,7 +83,7 @@ fieldset {
   border-radius: 10px;
 }
 
-#odsylacz>#rejestracja:hover,#odsylacz>#powrot:hover{
+.odsylacz>.rejestracja:hover,.odsylacz>.powrot:hover{
   background-color: rgba(0, 17, 255, 0.253);
 }
 

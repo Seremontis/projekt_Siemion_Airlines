@@ -19,18 +19,18 @@ require('uzytkownikp.php');
 </head>
 
 <body>
-<div id="kontener">
-    <div id="panel">
-        <a href="wyloguj.php"><div id="wyloguj">Wyloguj się</div></a> 
+<div class="kontener">
+    <div class="panel">
+        <a href="wyloguj.php"><div class="wyloguj">Wyloguj się</div></a> 
     </div>
-    <div id="wyszukiwarka">
+    <div class="wyszukiwarka">
         <form action="uzytkownik.php" method="GET">
             <fieldset>
                 <legend>
                     <h1>Wyszukiwarka</h1>
                 </legend>
                 <p>Skąd:
-                    <select id="wybierz1" name="skad" id="skad">
+                    <select class="wybierz1" name="skad" id="skad">
                         <option></option>
                     <?php
                                 $sql="SELECT DISTINCT skad FROM trasa";
@@ -49,7 +49,7 @@ require('uzytkownikp.php');
                 <p>
                     Dokąd:
 
-                    <select id="wybierz2" name="dokad" id="dokad">
+                    <select class="wybierz2" name="dokad" id="dokad">
                         <option></option>
                     <?php
                                 $sql="SELECT DISTINCT dokad FROM trasa";
@@ -64,7 +64,7 @@ require('uzytkownikp.php');
                     ?>
                     </select>
                 </p>
-                <p id="zatwierdz">
+                <p class="zatwierdz">
                 <input type="submit" content="Wyszukaj">
                 <input type="reset" content="Wyczyść">
                 </p>
@@ -72,7 +72,7 @@ require('uzytkownikp.php');
             </fieldset>
         </form>
     </div>
-    <div id="wynik">
+    <div class="wynik">
     <?php
         
 if(empty($_GET['skad'])==false && empty($_GET['dokad'])==false){

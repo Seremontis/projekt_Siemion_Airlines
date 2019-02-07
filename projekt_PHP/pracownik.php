@@ -61,11 +61,11 @@ require_once('polaczenie.php');
 </head>
 
 <body>
-    <div id="kontener">
-    <div id="panel">
-        <a href="wyloguj.php"><div id="wyloguj">Wyloguj się</div></a>  
-    </div>
-        <div id="opcje">
+<div class="kontener">
+    <nav class="panel">
+        <a href="wyloguj.php"><div class="wyloguj">Wyloguj się</div></a>  
+    </nav>
+        <main>
             <ul>
 
                 <h1>Wybierz opcję:</h1>
@@ -227,8 +227,8 @@ require_once('polaczenie.php');
                 </div>
 
             </ul>
-        </div>
-    </div>
+        </main>
+</div>
 
 </body>
 

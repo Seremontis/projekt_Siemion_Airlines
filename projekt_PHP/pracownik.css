@@ -5,37 +5,39 @@ html,body{
     width: 100%;
     overflow: auto;
     margin: 0px;
+    padding: 0;
 }
 
-#kontener{
+.kontener{
     height: 100%;
     width: 100%;
+    overflow: hidden;
 }
 
-#panel{
+.panel{
     height:30px;
     width: 100%;
 }
-#wyloguj{
+.wyloguj{
     float: right;
-    height: 15px;
+    height: 5vh;
     padding: 5px;
-    width: 80px;
+    width: 8vw;
     text-align: center;
-    font-size: 12px;
+    font-size: 1.2vw;
     margin-right: 20px;
     background-color: blue;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     color:white;
 }
-#powrot{
+.powrot{
     float:left;
-    height: 15px;
+    height: 5vh;
     padding: 5px;
-    width: 50px;
+    width: 7vw;
     text-align: center;
-    font-size: 12px;
+    font-size: 1.2vw;
     background-color: blue;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -46,19 +48,24 @@ html,body{
 a{
     text-decoration: none;
 }
-#wyloguj:hover,#powrot:hover{
+.wyloguj:hover,.powrot:hover{
     background-color: rgb(112, 25, 25);
     color:orange;
 }
 
-#opcje{
+main{
     float: left;
     min-height:500px;
     overflow: auto;
-    width: auto;
+    width: 100%;
     margin:5px;
     margin-left:10px;
     margin-right: 10px;
+    font-size: 1.2vw;
+}
+
+main >ul> h1{
+font-size:1.5vw;
 }
 
 li{
@@ -75,17 +82,19 @@ button{
 }
 
 
-button:hover,#przek:hover{
+button:hover,.przek:hover{
     background-color: rgb(52, 172, 180);
 }
 
-#wyszukiwarka1{
+.wyszukiwarka1{
     text-align: center;
+    margin:auto;
 }
 
 fieldset{
     text-align: right;
-    min-width: 300px;
+    font-size:15px;
+    max-width: 350px;
 }
 
 input,select{
@@ -126,20 +135,25 @@ input[type=time],input[type=date]{
     border-radius: 25px;
 }
 
-#opcja{
-    width:155px;;
-    margin:auto;
-    margin-top:20px
-}
 
-#generuj{
-    color:white;
-    border:solid 2px white;
-    border-radius:20px;
-    background:gray;padding:5px;
-}
 
-#generuj:hover{
-    background: greenyellow;
-    color:black;
+
+@media only screen and (max-width: 900px){
+    .kontener{
+        overflow: auto;
+    }
+
+    .wyloguj,.powrot,.zarejestruj,.zaloguj{
+        font-size:10px;
+        width: auto;
+        height: auto;
+    }
+
+    main >ul{
+        list-style-type: none;
+    }
+
+    main >ul> h1{
+        font-size: initial;
+    }
 }

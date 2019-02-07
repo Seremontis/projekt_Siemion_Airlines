@@ -3,31 +3,30 @@ html,body{
     background-size: cover;
     height: 100%;
     width: 100%;
-    overflow: auto;
     margin: 0px;
 }
 
-#kontener{
+.kontener {
     height: 100%;
     width: 100%;
-}
-
-#kontener {
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   
   #edytujsamolot,#edytujtrasa,#edytujklienci,#rozklad {
-    background-color: #00ffff9f;
-    background-color: rgba(0, 247, 255, 0.507);
-    width: auto;
-    height: auto;
+        height: auto;
+  }
+    #edytujsamolot,#edytujtrasa,#edytujklienci,#rozklad,#edytujpracownika {
+    background-color: rgba(0, 247, 255, 0.507);  
     margin: 5px;
     padding: 5px;
     text-align: center;
     border: darkkhaki 2px solid;
+  }
+
+  #edytujpracownika{
+    height: auto;
   }
 
   input,#t,#s,button{
@@ -47,3 +46,16 @@ html,body{
       text-decoration: none;
       color:black;
   }
+
+
+  @media only screen and (max-height:550px){
+    html,body{
+      overflow: auto;
+    }
+    
+      .kontener{
+        height: auto;
+        
+      }
+    
+    }
