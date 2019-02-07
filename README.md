@@ -10,6 +10,8 @@
   
   <hr />
   <ul> Przypuszczalne blędy/niedoskonałości:
-  <li> możliwe długie ładowanie strony przy dużej ilości danych na stronie pracownika zwiazane z tym że wszystko co potrzebne ściąga odrazu</li>
-  <li>brak responsywności na chwilę obecną</li>
+  <s><li>brak responsywności na chwilę obecną</li></s>
+  <li> Przy innej okazji poprawić obiektowość </li>
   <li>...</li>
+  </ul>
+W pliku "proszę przeczytaj.txt" znajdują się wskazówki co do pierwszego logowania pracownika
