@@ -3,49 +3,60 @@ body{
     background: url(".\\img\\dark-triangles.png");
     margin:0px;
     padding: 0px;
+    width: 100%;
+
 }
-#logo{
+.logo{
     background: rgba(173, 184, 113, 0.438); 
     text-align: center;
-    min-height: 600px;
+    min-height: 100%;
+    height: auto;
     padding-bottom: 50px;
 }
 
-#tytul{
+.tytul{
     margin: auto;
     text-align: center;
-    min-height: 500px;
+    height: 90vh;
 }
 
 
 
-#zaloguj{
+.zaloguj{
     margin: auto;
     min-height: 20px;
     min-width: 80px;
+    height: 5vh;
+    width: 10vw;
     background-color: rgba(17, 104, 175, 0.671);
-    font-size: 15;
+    font-size: 1.5vw;
     float: right;
-    padding: 8px;
-    margin-right: 20px;
+    padding: 1vw;
+    margin-right: 1vw;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
-#zarejestruj{
+.zarejestruj{
     margin: auto;
     min-height: 20px;
     min-width: 90px;
+    height: 5vh;
+    width: 10vw;
     background-color: rgba(17, 104, 175, 0.671);
-    font-size: 15;
+    font-size: 1.5vw;
     float: right;
-    padding: 8px;
-    margin-right: 150px;
+    padding: 1vw;
+    margin-right: 3vw;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
 
 
-
+.company{
+    padding-top: 20vh;
+    display: block;
+    height: auto;
+}
 
 .anim {
   text-align: center;
@@ -56,10 +67,7 @@ body{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; 
   animation: shine 1s linear infinite;
-  font-size: 80px;
-  padding: 100px;
-    width: 30%;
-    float: left;
+  font-size: 6vw;
 
 }
 @keyframes shine {
@@ -68,34 +76,39 @@ body{
     }
   }
 
-#samolot{
+.samolot{
     text-align: center;
-    margin: 100px;
-    float: left;
     width: auto;
-    min-height: 300px;
+    height: 40vh;
 }
 
-#tresc{
+.tresc{
       text-align: center;
-      font-size: 20px;
+      font-size: 6vw;
       font-family: fantasy;
       color: rgb(17, 209, 104);
       padding: 50px;
       font-size: 80px;
-      min-height: 600px;
+      height: 100Vh;
       background-color: rgba(255, 127, 80, 0.5);
       opacity: 0.8;
 }
-.log{
-    background: url(".\\img\\landscape-XX.jpg") fixed;
+.tresc p{
+    vertical-align: middle;
+
+}
+.background{
+    background-image: url(".\\img\\landscape-XX.jpg"); 
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-size:  cover;
     background-position-y: -200px;
-    min-height: 450px;
+    height: 80vh;
     width: 100%;
     opacity: 0.5;
 }
 
-#stopka{
+.stopka{
     background-color: rgba(129, 172, 28, 0.5);
     height:40px;
     width: 100%;
@@ -116,12 +129,38 @@ a{
     text-decoration: none;
 }
 
-#zaloguj:hover, #zarejestruj:hover{
+.zaloguj:hover, .zarejestruj:hover{
     background-color: greenyellow;
     color: goldenrod;
 }
 
-.test{
-    width: auto;
-    height: auto;
+
+
+@media only screen and (max-width: 1000px) {
+.zaloguj,.zarejestruj{
+    font-size: 2vw;
+}
+
+p{
+    margin-top:10vh;
+    font-size: 6vw;
+}
+
+.anim{
+    font-size:7vw;
+    margin:0;
+    padding: 0;
+    margin-top:10vh;
+    margin-bottom: 10vh;
+}
+
+.samolot{
+    margin:auto;
+   
+}
+
+.logo{
+    width: 100vw;
+}
+
 }

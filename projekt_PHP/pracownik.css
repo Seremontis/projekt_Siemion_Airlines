@@ -143,3 +143,9 @@ input[type=time],input[type=date]{
     background: greenyellow;
     color:black;
 }
+
+
+@media only screen and (max-width: 800px) {
+
+
+}

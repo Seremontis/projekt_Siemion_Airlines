@@ -13,6 +13,8 @@ tr{
 td{ 
     padding:7px;
     color:black;
+    width: auto;
+    min-width: 30px;
 }
 th{
     padding:7px;
@@ -22,4 +24,40 @@ th{
 
 tr:hover{
     background: darkgray;
+}
+
+.mobile{
+    display: none;
+}
+.no-mobile{
+    display: block;
+}
+
+.modify{
+    min-width: 90px;
+}
+
+@media only screen and (max-width: 1200px){
+    .no-mobile{
+        display: none;
+    }
+
+    .mobile{
+        display: block;
+    }
+}
+
+
+
+@media only screen and (max-width: 1000px){
+ table{
+    font-size:1.5vw;
+ }
+
+}
+
+@media only screen and (max-width: 600px){
+    table{
+        font-size: 15px;
+    }
 }

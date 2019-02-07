@@ -85,9 +85,13 @@ else if(isset($_POST['usunpracownicy'])){
         $wykonaj=$baza->prepare($kolumny);
         $wykonaj->execute();
         $ilosc=$wykonaj->rowCount();
-            while($dane=$wykonaj->fetch())
-                echo "<th>{$dane[0]}</th>";
-            echo "<th style='width:90px;'>Modyfikacje</th>";
+            while($dane=$wykonaj->fetch()){
+                if($dane[0]=='id_pracownika' || $dane[0]=='id_klienta')
+                    echo "<th>ID</th>";                
+                else
+                    echo "<th>{$dane[0]}</th>";
+            }                
+            echo "<th>Modyfikacje</th>";
             echo "</tr>";
             $rekordy="select * FROM {$zmienna}";
             $wykonaj2=$baza->query($rekordy);
@@ -95,8 +99,14 @@ else if(isset($_POST['usunpracownicy'])){
                 echo "<tr>";
                 for($i=0;$i<$ilosc;$i++){
                     if(($i==7 && $zmienna=="klienci") || ($i==8 && $zmienna=="pracownicy")){
-                        echo "<td>";
+                        echo "<td class='no-mobile'>";
                         for($y=0;$y<strlen($dane[$i]);$y++)
+                            echo "*";
+                        echo "</td>";
+
+
+                        echo "<td class='mobile'>";
+                        for($y=0;$y<5;$y++)
                             echo "*";
                         echo "</td>";
                     }  
@@ -114,7 +124,7 @@ else if(isset($_POST['usunpracownicy'])){
 
                 }
                    
-                echo "<td><form action='formularzpracownika.php' method='post'>
+                echo "<td class='modify'><form action='formularzpracownika.php' method='post'>
                         <input type='hidden' name='edytuj{$zmienna}' value='{$dane[0]}'/>
                         <button type='submit' id='edytuj' /></button></form>
                         <form action='pracownik2.php' method='post'>";
