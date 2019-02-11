@@ -14,8 +14,8 @@ require('uzytkownikp.php');
     <meta name="description" content="panel użytkownika">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Karol Ścigała">
-    <link rel="stylesheet" type="text/css" href="uzytkownik.css" />
-    <link rel="stylesheet" type="text/css" href="tabela.css" />
+    <link rel="stylesheet" type="text/css" href="css/uzytkownik.css" />
+    <link rel="stylesheet" type="text/css" href="css/tabela.css" />
 </head>
 
 <body>

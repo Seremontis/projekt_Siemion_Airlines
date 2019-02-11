@@ -1,0 +1,159 @@
+html,body{
+    background: url("..\\img\\personel.png");
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    margin: 0px;
+    padding: 0;
+}
+
+.kontener{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.panel{
+    height:30px;
+    width: 100%;
+}
+.wyloguj{
+    float: right;
+    height: 5vh;
+    padding: 5px;
+    width: 8vw;
+    text-align: center;
+    font-size: 1.2vw;
+    margin-right: 20px;
+    background-color: blue;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    color:white;
+}
+.powrot{
+    float:left;
+    height: 5vh;
+    padding: 5px;
+    width: 7vw;
+    text-align: center;
+    font-size: 1.2vw;
+    background-color: blue;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-left: 30px;
+    color:white;
+
+}
+a{
+    text-decoration: none;
+}
+.wyloguj:hover,.powrot:hover{
+    background-color: rgb(112, 25, 25);
+    color:orange;
+}
+
+main{
+    float: left;
+    min-height:500px;
+    overflow: auto;
+    width: 100%;
+    margin:5px;
+    margin-left:10px;
+    margin-right: 10px;
+    font-size: 1.2vw;
+}
+
+main >ul> h1{
+font-size:1.5vw;
+}
+
+li{
+    margin-top:10px;
+}
+
+button{
+    border-radius: 5px;
+    background-color: rgb(40, 93, 153);
+    color:white;
+    border: none;
+    margin-left: 10px;
+    padding:5px;
+}
+
+
+button:hover,.przek:hover{
+    background-color: rgb(52, 172, 180);
+}
+
+.wyszukiwarka1{
+    text-align: center;
+    margin:auto;
+}
+
+fieldset{
+    text-align: right;
+    font-size:15px;
+    max-width: 350px;
+}
+
+input,select{
+    width:150px;
+}
+
+input[type=time],input[type=date]{
+    text-align: center;
+}
+
+
+#edytuj{
+    border:none;
+    background: url('..\\img\\edytuj.png');
+    height: 35px;
+    width: 35px;
+    cursor:pointer;
+    border-radius: 25px;
+    float: left;
+}
+
+#usun{
+    border:none;
+    background: url('..\\img\\usun.png');
+    height: 35px;
+    width: 35px;
+    cursor:pointer;
+    border-radius: 25px;
+    float: right;
+}
+
+#usunrez{
+    border:none;
+    background: url('..\\img\\usun.png');
+    height: 35px;
+    width: 35px;
+    cursor:pointer;
+    border-radius: 25px;
+}
+
+
+
+
+@media only screen and (max-width: 900px){
+    .kontener{
+        overflow: auto;
+    }
+
+    .wyloguj,.powrot,.zarejestruj,.zaloguj{
+        font-size:10px;
+        width: auto;
+        height: auto;
+    }
+
+    main >ul{
+        list-style-type: none;
+    }
+
+    main >ul> h1{
+        font-size: initial;
+    }
+}

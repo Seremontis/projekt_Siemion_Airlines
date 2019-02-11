@@ -23,7 +23,7 @@ if(isset($_POST['log'])==1)
     <meta name="description" content="Rejestracja do Siemion Airlines">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Karol Ścigała">
-    <link rel="stylesheet" type="text/css" href="zaloguj.css" />
+    <link rel="stylesheet" type="text/css" href="css/zaloguj.css" />
 </head>
 
 <body>
@@ -60,7 +60,7 @@ if(isset($_POST['log'])==1)
                 </form>
             </fieldset>
             <div class="odsylacz">
-                <div class="powrot"><a href="index1.php">Powrót</a></div>
+                <div class="powrot"><a href="index.php">Powrót</a></div>
                 <div style="cler:both;"></div>
                 <div class="rejestracja"><a href="zarejestruj.php">Rejestracja</a></div>
             </div>

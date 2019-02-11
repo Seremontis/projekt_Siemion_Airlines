@@ -10,8 +10,8 @@
     <meta name="description" content="Rejestracja do Siemion Airlines">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Karol Ścigała">
-    <link rel="stylesheet" type="text/css" href="pracownik.css" />
-    <link rel="stylesheet" type="text/css" href="tabela.css" />
+    <link rel="stylesheet" type="text/css" href="css/pracownik.css" />
+    <link rel="stylesheet" type="text/css" href="css/tabela.css" />
 </head>
 <body>
 <div class="kontener">

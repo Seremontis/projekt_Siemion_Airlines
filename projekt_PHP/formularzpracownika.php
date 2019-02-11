@@ -15,7 +15,7 @@ if(isset($_POST['modyf'])){
     <title>Formularz edycji</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Karol Ścigała">
-    <link rel="stylesheet" type="text/css" media="screen" href="formularz.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/formularz.css" />
    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
     <script>
 
@@ -70,7 +70,7 @@ if(isset($_POST['modyf'])){
                             </p>
                             </form>
                             <p>
-                                <button><a href=".\pracownik2.php?co=samolot">Powrót</a></button>
+                                <a class="abutton" href=".\pracownik2.php?co=samolot">Powrót</a>
                             </p>
                         </fieldset>
                 
@@ -104,7 +104,7 @@ if(isset($_POST['modyf'])){
                             </p>
                             </form>
                             <p>
-                                <button><a href=".\pracownik2.php?co=trasa">Powrót</a></button>
+                                <a class="abutton" href=".\pracownik2.php?co=trasa">Powrót</a>
                             </p>
                         </fieldset>
                     
@@ -173,7 +173,7 @@ if(isset($_POST['modyf'])){
                             </p>
                             </form>
                             <p>
-                                <button><a href=".\pracownik2.php?co=rozklady">Powrót</a></button>
+                                <a class="abutton" href=".\pracownik2.php?co=rozklady">Powrót</a>
                             </p>
                         </fieldset>
                                     <?php } ?>
@@ -222,7 +222,7 @@ if(isset($_POST['modyf'])){
                     </p>
                     </form>
                             <p>
-                                <button><a href=".\pracownik2.php?co=klienci">Powrót</a></button>
+                                <a  class="abutton" href=".\pracownik2.php?co=klienci">Powrót</a>
                             </p>
 
                     
@@ -282,7 +282,7 @@ if(isset($_POST['modyf'])){
                                 </p>
                     </form>
                             <p>
-                                <button><a href=".\pracownik2.php?co=pracownicy">Powrót</a></button>
+                                <a class="abutton" href=".\pracownik2.php?co=pracownicy">Powrót</a>
                             </p>
 
                     

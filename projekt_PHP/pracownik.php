@@ -17,7 +17,7 @@ require_once('polaczenie.php');
     <meta name="description" content="Rejestracja do Siemion Airlines">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Karol Ścigała">
-    <link rel="stylesheet" type="text/css" href="pracownik.css" />
+    <link rel="stylesheet" type="text/css" href="css/pracownik.css" />
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
     <script>
 

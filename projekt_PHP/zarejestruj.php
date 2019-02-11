@@ -19,7 +19,7 @@ if((isset($_POST['imie'])) && (isset($_POST['nazwisko'])) && (isset($_POST['pese
     <meta name="description" content="Rejestracja klienta do Siemion Airlines">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Karol Ścigała">
-    <link rel="stylesheet" href="zarejestruj.css" type="text/CSS">
+    <link rel="stylesheet" href="css/zarejestruj.css" type="text/CSS">
 </head>
 
 <body>
