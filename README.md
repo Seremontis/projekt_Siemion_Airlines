@@ -16,4 +16,5 @@
   <li> bład z odczytywaniem danych od pracownika z 1 poziomem uprawnień</li>
   <li>...</li>
   </ul>
+  <br />
 W pliku "proszę przeczytaj.txt" znajdują się wskazówki co do pierwszego logowania pracownika
